@@ -26,6 +26,7 @@ import { MaterialIcons, SimpleLineIcons } from "@expo/vector-icons";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import { currencyList } from "../Utils/CurrencyItem";
 import ChartDefault from "../Components/ChartDefault";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function Analytics() {
   const screenWidth = Dimensions.get("window").width;
@@ -68,7 +69,15 @@ export default function Analytics() {
     setDate(currentDate);
   };
 
-  useEffect(() => {}, [period1, period]);
+  const showData = async () => {
+  let user_token = await  AsyncStorage.getItem('token');
+  user_token = JSON.parse(user_token)
+  console.log("user_token",typeof user_token, user_token);
+}
+
+  useEffect(() => {
+    showData()
+  }, [period1, period]);
   return (
     <ScrollView>
       <ExpoLinearGradient
@@ -89,6 +98,8 @@ export default function Analytics() {
             Analytics
           </Text>
         </Center>
+
+        {/* <Text>{user_token}</Text> */}
 
         <HStack
           justifyContent="space-between"
@@ -196,13 +207,14 @@ export default function Analytics() {
             onChange={onChange}
           />
         )}
+        
 
         <HStack alignItems={"center"} mx={6} my={10}>
           {showCurrencyResult ? (
             <VStack>
               <Text color={"black"} fontWeight={"bold"} fontSize={24}>
                 {date.toDateString()}
-              </Text>
+              </Text> 
               <Text color={"black"} fontWeight={"bold"} fontSize={17}>
                 $1 = €0.83
               </Text>
@@ -220,22 +232,22 @@ export default function Analytics() {
                 <>
                   <Pressable onPress={() => setOpenCurrency1(true)}>
                     <HStack alignItems={"center"}>
-                      <Text bold fontSize="xl">
+                      <Text bold fontSize="sm">
                         {currency1 ? currency1 : "Add Currency"}
                       </Text>
                       <Image
                         source={require("../assets/icons/downSolid.png")}
-                        width={4}
-                        height={2}
-                        ml={4}
+                        width={2}
+                        height={1}
+                        ml={2}
 
                         alt="image"
                       />
                       {currency1 && (
                         <Image
                           source={require("../assets/icons/rightArrow.png")}
-                          width={5}
-                          height={3}
+                          width={4}
+                          height={2}
                           ml={2}
                           alt="image"
                         />
@@ -245,14 +257,14 @@ export default function Analytics() {
 
                   <Pressable onPress={() => setOpenCurrency2(true)} ml={8}>
                     <HStack alignItems={"center"}>
-                      <Text bold fontSize="xl">
+                      <Text bold fontSize="sm">
                         {currency2 ? currency2 : "Add Currency"}
                       </Text>
                       <Image
                         source={require("../assets/icons/downSolid.png")}
-                        width={4}
-                        height={2}
-                        ml={4}
+                        width={2}
+                        height={1}
+                        ml={2}
                         alt="image"
                       />
                     </HStack>

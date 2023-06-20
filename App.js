@@ -1,5 +1,5 @@
 import * as React from "react";
-import { NativeBaseProvider, Text } from "native-base";
+import { NativeBaseProvider, Text, View } from "native-base";
 
 import { NavigationContainer } from '@react-navigation/native';
 
@@ -12,7 +12,6 @@ export default function App() {
       <NavigationContainer>
           <MyStack />
       </NavigationContainer>
-
     </NativeBaseProvider>
   );
 }

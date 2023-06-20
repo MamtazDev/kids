@@ -18,7 +18,7 @@ const Summery = () => {
       p={5}
       borderRadius={40}
     >
-      <Text color="##1E3DFB">Weekly Top</Text>
+      <Text color="#1E3DFB">Weekly Top</Text>
       <Text bold fontSize="2xl">
         Euro
       </Text>

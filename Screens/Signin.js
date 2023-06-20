@@ -11,6 +11,7 @@ import AppScreen from "../Utils/AppScreen";
 import { Button, Center, Flex, Image, VStack } from "native-base";
 import COLORS from "../Utils/Constant";
 
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { LinearGradient } from "expo-linear-gradient";
 import { primaryGrad } from "../Utils/GradientColor";
 
@@ -28,8 +29,9 @@ const Signin = ({ navigation }) => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          email: email,
-          password: password,
+          email: "dihanopedia@gmail.com",
+          password: "abir",
+          login_key: "49ae1c20-986b-43a6-aa2b-fb3ac65ff222"
         }),
       });
 
@@ -37,8 +39,9 @@ const Signin = ({ navigation }) => {
         // Sign-in successful
         const data = await response.json();
         // Do something with the response data
-        console.log(data);
-        navigation.navigate("Home");
+        console.log("Token: ",data.token);
+        AsyncStorage.setItem('token', JSON.stringify(data.token));
+        // navigation.navigate("Home");
       } else {
         // Sign-in failed
         const errorData = await response.json();
@@ -50,7 +53,7 @@ const Signin = ({ navigation }) => {
       console.error(error);
     }
 
-    navigation.navigate("Home");
+    // navigation.navigate("Home");
   };
 
   return (

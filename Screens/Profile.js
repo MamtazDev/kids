@@ -22,7 +22,7 @@ import { LinearGradient } from "expo-linear-gradient";
 const Profile = ({ navigation }) => {
   const [logoutModal, setLogoutModal] = useState(false);
   return (
-    <>
+    <View style={styles.container}>
       <LinearGradient
         // Button Linear Gradient
         colors={primaryGrad}
@@ -65,7 +65,7 @@ const Profile = ({ navigation }) => {
             <Text style={styles.header_email}>nahid.muradabir@gmai.com</Text>
           </Box>
         </VStack>
-      </LinearGradient>
+    
       {/* -------------itemss ------------- */}
 
       <TouchableOpacity onPress={() => navigation.navigate("Personal")}>
@@ -237,7 +237,8 @@ const Profile = ({ navigation }) => {
           </Modal.Body>
         </Modal.Content>
       </Modal>
-    </>
+      </LinearGradient>
+    </View>
   );
 };
 
@@ -264,4 +265,8 @@ const styles = StyleSheet.create({
     color: "#222222",
     marginLeft: 20,
   },
+  container:{
+    height:"100%",
+    backgroundColor:'#fbfbfb'
+  }
 });
