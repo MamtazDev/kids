@@ -65,80 +65,82 @@ const Profile = ({ navigation }) => {
             <Text style={styles.header_email}>nahid.muradabir@gmai.com</Text>
           </Box>
         </VStack>
-    
-      {/* -------------itemss ------------- */}
 
-      <TouchableOpacity onPress={() => navigation.navigate("Personal")}>
-        <HStack
-          space={3}
-          mt={10}
-          mx="4%"
-          justifyContent="space-between"
-          justifyItems={"center"}
-          backgroundColor="white"
-          paddingX={3}
-          paddingY={6}
-          borderRadius={10}
-        >
-          <View display={"flex"} flexDirection={"row"} justifyItems="center">
+        {/* -------------itemss ------------- */}
+
+        <TouchableOpacity onPress={() => navigation.navigate("Personal")}>
+          <HStack
+            space={3}
+            mt={10}
+            mx="4%"
+            justifyContent="space-between"
+            justifyItems={"center"}
+            backgroundColor="white"
+            paddingX={3}
+            paddingY={6}
+            borderRadius={10}
+            style={{ elevation: 1 }}
+          >
+            <View display={"flex"} flexDirection={"row"} justifyItems="center">
+              <Image
+                source={require("../assets/icons/user.png")}
+                style={{
+                  width: 20,
+                  height: 20,
+                }}
+                alt="logo"
+              />
+              <Text style={styles.title}>Personal Information</Text>
+            </View>
+
             <Image
-              source={require("../assets/icons/user.png")}
+              source={require("../assets/icons/arrowr.png")}
               style={{
-                width: 20,
-                height: 20,
+                width: 9,
+                height: 16,
               }}
               alt="logo"
             />
-            <Text style={styles.title}>Personal Information</Text>
-          </View>
+          </HStack>
+        </TouchableOpacity>
 
-          <Image
-            source={require("../assets/icons/arrowr.png")}
-            style={{
-              width: 9,
-              height: 16,
-            }}
-            alt="logo"
-          />
-        </HStack>
-      </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate("Preference")}>
+          <HStack
+            space={3}
+            mt={5}
+            mx="4%"
+            justifyContent="space-between"
+            justifyItems={"center"}
+            backgroundColor="white"
+            paddingX={3}
+            paddingY={6}
+            style={{ elevation: 1 }}
+            borderRadius={10}
+          >
+            <View display={"flex"} flexDirection={"row"} justifyItems="center">
+              <Image
+                source={require("../assets/icons/setting.png")}
+                style={{
+                  width: 20,
+                  height: 20,
+                }}
+                alt="logo"
+              />
+              <Text style={styles.title}>Preference</Text>
+            </View>
 
-      <TouchableOpacity onPress={() => navigation.navigate("Preference")}>
-        <HStack
-          space={3}
-          mt={5}
-          mx="4%"
-          justifyContent="space-between"
-          justifyItems={"center"}
-          backgroundColor="white"
-          paddingX={3}
-          paddingY={6}
-          borderRadius={10}
-        >
-          <View display={"flex"} flexDirection={"row"} justifyItems="center">
             <Image
-              source={require("../assets/icons/setting.png")}
+              source={require("../assets/icons/arrowr.png")}
               style={{
-                width: 20,
-                height: 20,
+                width: 9,
+                height: 16,
               }}
               alt="logo"
             />
-            <Text style={styles.title}>Preference</Text>
-          </View>
+          </HStack>
+        </TouchableOpacity>
 
-          <Image
-            source={require("../assets/icons/arrowr.png")}
-            style={{
-              width: 9,
-              height: 16,
-            }}
-            alt="logo"
-          />
-        </HStack>
-      </TouchableOpacity>
-
-      {/* 
+        {/* 
       <TouchableOpacity onPress={() => navigation.navigate("Notification")}>
         <HStack space={3} mt={5} justifyContent="space-between" justifyItems={"center"} backgroundColor="white" paddingX={3} paddingY={6} borderRadius={10}  >
           <View display={'flex'} flexDirection={'row'} justifyItems="center" >
@@ -165,78 +167,87 @@ const Profile = ({ navigation }) => {
         </HStack>
       </TouchableOpacity> */}
 
-      <Pressable onPress={() => setLogoutModal(true)}>
-        <HStack
-          onPress={() => setLogoutModal(true)}
-          space={3}
-          mt={5}
-          mx="4%"
-          justifyContent="space-between"
-          justifyItems={"center"}
-          backgroundColor="white"
-          paddingX={3}
-          paddingY={6}
-          borderRadius={10}
-        >
-          <View display={"flex"} flexDirection={"row"} justifyItems="center">
+        <Pressable onPress={() => setLogoutModal(true)}>
+          <HStack
+            onPress={() => setLogoutModal(true)}
+            space={3}
+            mt={5}
+            mx="4%"
+            justifyContent="space-between"
+            justifyItems={"center"}
+            backgroundColor="white"
+            paddingX={3}
+            paddingY={6}
+            borderRadius={10}
+            style={{ elevation: 1 }}
+          >
+            <View display={"flex"} flexDirection={"row"} justifyItems="center">
+              <Image
+                source={require("../assets/icons/logout.png")}
+                style={{
+                  width: 20,
+                  height: 20,
+                }}
+                alt="logo"
+              />
+              <Text style={styles.title}>Logout</Text>
+            </View>
+
             <Image
-              source={require("../assets/icons/logout.png")}
+              source={require("../assets/icons/arrowr.png")}
               style={{
-                width: 20,
-                height: 20,
+                width: 9,
+                height: 16,
               }}
               alt="logo"
             />
-            <Text style={styles.title}>Logout</Text>
-          </View>
+          </HStack>
+        </Pressable>
 
-          <Image
-            source={require("../assets/icons/arrowr.png")}
-            style={{
-              width: 9,
-              height: 16,
-            }}
-            alt="logo"
-          />
-        </HStack>
-      </Pressable>
-
-      {/* --------------logout modal---------------- */}
-      <Modal isOpen={logoutModal} onClose={() => setLogoutModal(false)} px={8}>
-        <Modal.Content width={"full"} maxWidth="400px">
-          <Modal.Body px={6}>
-            <Text
-              style={{ fontSize: 20, color: "#2E20CA", fontWeight: "bold" }}
-            >
-              Logout
-            </Text>
-            <Text fontWeight={"bold"} fontSize={20} marginTop={10}>
-              Do you want to exit?
-            </Text>
-
-            <HStack display={"flex"} justifyContent={"flex-end"} marginTop={10}>
+        {/* --------------logout modal---------------- */}
+        <Modal
+          isOpen={logoutModal}
+          onClose={() => setLogoutModal(false)}
+          px={8}
+        >
+          <Modal.Content width={"full"} maxWidth="400px">
+            <Modal.Body px={6}>
               <Text
-                onPress={() => setLogoutModal(false)}
                 style={{ fontSize: 20, color: "#2E20CA", fontWeight: "bold" }}
               >
-                No
+                Logout
               </Text>
-              <TouchableOpacity onPress={() => navigation.navigate("Login")}>
+              <Text fontWeight={"bold"} fontSize={20} marginTop={10}>
+                Do you want to exit?
+              </Text>
+
+              <HStack
+                display={"flex"}
+                justifyContent={"flex-end"}
+                marginTop={10}
+              >
                 <Text
-                  style={{
-                    fontSize: 20,
-                    color: "#2E20CA",
-                    fontWeight: "bold",
-                    marginLeft: 40,
-                  }}
+                  onPress={() => setLogoutModal(false)}
+                  style={{ fontSize: 20, color: "#2E20CA", fontWeight: "bold" }}
                 >
-                  Yes
+                  No
                 </Text>
-              </TouchableOpacity>
-            </HStack>
-          </Modal.Body>
-        </Modal.Content>
-      </Modal>
+                <TouchableOpacity onPress={() => navigation.navigate("Login")}>
+                  <Text
+                    style={{
+                      fontSize: 20,
+                      color: "#2E20CA",
+                      fontWeight: "bold",
+                      marginLeft: 40,
+                    }}
+                  >
+                    Yes
+                  </Text>
+                </TouchableOpacity>
+              </HStack>
+            </Modal.Body>
+          </Modal.Content>
+        </Modal>
       </LinearGradient>
     </View>
   );
@@ -265,8 +276,8 @@ const styles = StyleSheet.create({
     color: "#222222",
     marginLeft: 20,
   },
-  container:{
-    height:"100%",
-    backgroundColor:'#fbfbfb'
-  }
+  container: {
+    height: "100%",
+    backgroundColor: "#fbfbfb",
+  },
 });

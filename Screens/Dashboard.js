@@ -50,6 +50,7 @@ export default Dashboard;
 const styles = StyleSheet.create({
   wrapper: {
     padding: 20,
+    marginBottom: 100,
     //   backgroundColor: COLORS.purple,
   },
   container: {

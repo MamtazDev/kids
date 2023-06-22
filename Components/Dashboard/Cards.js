@@ -55,7 +55,9 @@ const Cards = () => {
                 height={38}
                 backgroundColor="#232631B8"
                 text
-                mt={2}
+                mt={1}
+                mb={2}
+                ml="30%"
                 borderRadius={30}
                 p={1}
                 px={2}
@@ -88,6 +90,7 @@ const Cards = () => {
               style={{
                 borderBottomRightRadius: 20,
                 borderBottomLeftRadius: 20,
+                paddingBottom: 15,
               }}
               // Button Linear Gradient
               colors={["rgba(35, 38, 49, 0.72)", "#232631", "#232631"]}
@@ -95,8 +98,7 @@ const Cards = () => {
               <Flex
                 direction="row"
                 justifyContent="space-around"
-                paddingTop={4}
-                paddingBottom={4}
+                paddingTop={1}
                 // borderRadius={10}
               >
                 <VStack space={1}>

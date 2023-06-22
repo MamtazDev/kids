@@ -62,17 +62,17 @@ function Home() {
         headerShown: false,
         tabBarShowLabel: false,
         tabBarStyle: {
-            position: 'absolute',
-            bottom: 5,
-            left: 20,
-            right: 20,
-            elevation: 0,
-            backgroundColor: '#ffffff',
-            borderRadius: 15,
-            height: 70,
+          position: "absolute",
+          bottom: 10,
+          left: 20,
+          right: 20,
+          elevation: 1,
+          backgroundColor: "#ffffff",
+          borderRadius: 35,
+          height: 70,
         },
-    }}
-  
+      }}
+
       // screenOptions={{ ShowLabel: false }}
     >
       <Tab.Screen
@@ -152,7 +152,6 @@ function Home() {
                 width: 15,
                 height: 15,
                 tintColor: focused ? "#ffffff" : "#ffffff",
-                
               }}
               alt="image"
             />

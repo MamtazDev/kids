@@ -31,7 +31,7 @@ const AddNotification = ({ navigation }) => {
   useEffect(() => {}, [IsIncreate]);
 
   return (
-    <>
+    <View style={{ backgroundColor: "#ffffff" }}>
       <ScrollView
         showsVerticalScrollIndicator={false}
         showsHorizontalScrollIndicator={false}
@@ -42,8 +42,9 @@ const AddNotification = ({ navigation }) => {
             // "rgba(170, 255, 251, 0.5)",
             "rgba(78, 67, 255, 0.87)",
             "rgba(137, 129, 254, 0.87)",
-            // "#ffffff",
-            "#e6e6e6",
+            "rgba(137, 129, 254, 0.87)",
+            "#ffffff",
+            // "#e6e6e6",
           ]}
         >
           <Box paddingY="50px" paddingX="20px">
@@ -62,7 +63,8 @@ const AddNotification = ({ navigation }) => {
           <CurrencyDropdown />
           <HStack marginX={5} mt={5} justifyContent="space-between">
             <Button
-              backgroundColor="#ffffff"
+              backgroundColor="#F6FBFF"
+              style={{ elevation: 1 }}
               // style={{
               //   borderTopWidth: IsIncreate === true ? 2 : 0,
               //   borderBottomWidth: IsIncreate === true ? 2 : 0,
@@ -86,7 +88,8 @@ const AddNotification = ({ navigation }) => {
               Is Increase
             </Button>
             <Button
-              backgroundColor="#ffffff"
+              backgroundColor="#F6FBFF"
+              style={{ elevation: 1 }}
               borderWidth={IsIncreate === false ? 1 : 0}
               borderColor={COLORS.primary}
               borderRadius={18}
@@ -106,7 +109,8 @@ const AddNotification = ({ navigation }) => {
               // rounded
               paddingX={2}
               // paddingY={5}
-              backgroundColor="#ffffff"
+               backgroundColor="#F6FBFF"
+              style={{ elevation: 1 }}
               _text={{
                 color: "#1F2937",
                 paddingX: "10",
@@ -260,7 +264,8 @@ const AddNotification = ({ navigation }) => {
         <CurrencyDropdown ValueIsNeeded={true} />
         <HStack marginX={5} mt={5} justifyContent="space-between">
           <Button
-            backgroundColor="#ffffff"
+            backgroundColor="#F6FBFF"
+            style={{ elevation: 1 }}
             // style={{
             //   borderTopWidth: IsIncreate === true ? 2 : 0,
             //   borderBottomWidth: IsIncreate === true ? 2 : 0,
@@ -284,7 +289,8 @@ const AddNotification = ({ navigation }) => {
             Is Increase
           </Button>
           <Button
-            backgroundColor="#ffffff"
+            backgroundColor="#F6FBFF"
+            style={{ elevation: 1 }}
             borderWidth={IsIncreate === false ? 1 : 0}
             borderColor={COLORS.primary}
             borderRadius={18}
@@ -304,7 +310,8 @@ const AddNotification = ({ navigation }) => {
               // rounded
               paddingX={2}
               // paddingY={5}
-              backgroundColor="#ffffff"
+               backgroundColor="#F6FBFF"
+              style={{ elevation: 1 }}
               _text={{
                 color: "#1F2937",
                 paddingX: "10",
@@ -407,7 +414,7 @@ const AddNotification = ({ navigation }) => {
           </Box>
         </TouchableOpacity>
       </ScrollView>
-    </>
+    </View>
   );
 };
 

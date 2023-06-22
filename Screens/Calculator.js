@@ -51,13 +51,10 @@ const Calculator = () => {
       <>
         <View>
           <LinearGradient colors={["#e6f9ff", "#e7e6ff", "#e7e6ff", "#ffffff"]}>
-          
             <ScrollView
               showsHorizontalScrollIndicator={false}
               showsVerticalScrollIndicator={false}
             >
-                
-              
               <HStack
                 paddingX={2}
                 display={"flex"}
@@ -65,11 +62,10 @@ const Calculator = () => {
                 height={200}
                 // paddingBottom={5}
               >
-              
                 <VStack justifyContent={"flex-end"} alignItems={"flex-end"}>
                   <View>
                     <Text
-                    Color="#e6e6e6"
+                      Color="#e6e6e6"
                       fontSize={20}
                       // marginTop={1}
                       fontWeight={700}
@@ -77,7 +73,7 @@ const Calculator = () => {
                       Calculator
                     </Text>
                   </View>
-                
+
                   <Text fontSize={30} fontWeight={600}>
                     {expression}
                   </Text>
@@ -121,7 +117,7 @@ const Calculator = () => {
         paddingX={5}
         // marginBottom={5}
       >
-        <VStack space={6} width={"full"} marginTop={5} >
+        <VStack space={2} width={"full"} marginTop={5}>
           <HStack space={5}>
             {/* First Row */}
 
@@ -596,10 +592,10 @@ const styles = StyleSheet.create({
     background: "linear-gradient(#ffffff, #7C)",
   },
   button: {
-    padding: 7,
+    padding: 12,
 
-    width: 65,
-    height: 65,
+    width: 85,
+    height: 85,
     alignItems: "center",
     borderRadius: 50,
     borderColor: "#ffffff",

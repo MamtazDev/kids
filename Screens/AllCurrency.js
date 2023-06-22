@@ -21,6 +21,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import SIngleCurrencyList from "../Components/AllCurrencyScreen/SIngleCurrencyList";
 import COLORS from "../Utils/Constant";
 import { primaryGrad } from "../Utils/GradientColor";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 function AllCurrency({ navigation }) {
   const [AllCurrency, setAllCurrency] = useState([1, 2]);

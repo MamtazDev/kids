@@ -70,13 +70,49 @@ export default function Analytics() {
   };
 
   const showData = async () => {
-  let user_token = await  AsyncStorage.getItem('token');
-  user_token = JSON.parse(user_token)
-  console.log("user_token",typeof user_token, user_token);
-}
+    let user_token = await AsyncStorage.getItem("token");
+    user_token = JSON.parse(user_token);
+    console.log("user_token: ", typeof user_token, user_token);
+  };
+
+  const refetchData = async () => {
+    let user_token = await AsyncStorage.getItem("token");
+    user_token = JSON.parse(user_token);
+
+    console.log("user_token: ", typeof user_token, user_token);
+
+    fetch("http://api.qwixk.com/coin-alter/historical", {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${user_token}`,
+      },
+      body: JSON.stringify({
+        base_currency: "BDT",
+        target_currencies: ["INR"],
+        start: "2022-01-01",
+        end: "2022-02-27",
+      }),
+    })
+      .then((response) => response.json())
+      .then((json) => {
+        console.log("Profile ", json);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+
+    // navigation.navigate("Home");
+  };
 
   useEffect(() => {
-    showData()
+    refetchData();
+  }, []);
+
+  useEffect(() => {
+    showData();
   }, [period1, period]);
   return (
     <ScrollView>
@@ -115,14 +151,18 @@ export default function Analytics() {
             style={{ borderRadius: 30 }}
           >
             <Button
-              onPress={() => setDay("Day")}
+              onPress={() => {
+                refetchData();
+                console.log("DIhan consoled the log!");
+                setDay("Day");
+              }}
               backgroundColor={"transparent"}
               borderWidth={2}
               borderColor={"white"}
               borderRadius={30}
               px={10}
             >
-              <Text color={day === "Day" ? "white" : "black"}>Day</Text>
+              <Text color={day === "Day" ? "white" : "black"}>7 Days</Text>
             </Button>
           </ExpoLinearGradient>
 
@@ -140,7 +180,7 @@ export default function Analytics() {
               borderRadius={30}
               px={7}
             >
-              <Text color={day === "7 Days" ? "white" : "black"}>7 Days</Text>
+              <Text color={day === "7 Days" ? "white" : "black"}>30 Days</Text>
             </Button>
           </ExpoLinearGradient>
 
@@ -160,7 +200,9 @@ export default function Analytics() {
               borderRadius={30}
               px={8}
             >
-              <Text color={day === "30 Days" ? "white" : "black"}>30 Days</Text>
+              <Text color={day === "30 Days" ? "white" : "black"}>
+                365 Days
+              </Text>
             </Button>
           </ExpoLinearGradient>
         </HStack>
@@ -207,14 +249,13 @@ export default function Analytics() {
             onChange={onChange}
           />
         )}
-        
 
         <HStack alignItems={"center"} mx={6} my={10}>
           {showCurrencyResult ? (
             <VStack>
               <Text color={"black"} fontWeight={"bold"} fontSize={24}>
                 {date.toDateString()}
-              </Text> 
+              </Text>
               <Text color={"black"} fontWeight={"bold"} fontSize={17}>
                 $1 = €0.83
               </Text>
@@ -240,7 +281,6 @@ export default function Analytics() {
                         width={2}
                         height={1}
                         ml={2}
-
                         alt="image"
                       />
                       {currency1 && (
@@ -292,7 +332,7 @@ export default function Analytics() {
           height="60px"
           width="80%"
           mt={1}
-          backgroundColor="#000000"
+          backgroundColor="#232631"
           borderRadius={50}
           alignItems="center"
           justifyContent="center"
@@ -307,7 +347,7 @@ export default function Analytics() {
 
         {[1, 2, 3].map((item, index) => (
           <HStack
-          key={index}
+            key={index}
             mt={4}
             justifyContent="space-between"
             width="100%"

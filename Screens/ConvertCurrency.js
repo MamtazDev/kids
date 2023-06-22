@@ -1,6 +1,6 @@
 import React from "react";
-import { StyleSheet } from "react-native";
-import { Avatar, Button, HStack, Input, Text, VStack, View } from "native-base";
+import { StyleSheet, TextInput } from "react-native";
+import { Avatar, Button, HStack, Text, VStack, View } from "native-base";
 
 import { LinearGradient } from "expo-linear-gradient";
 import RouteHeader from "../Utils/RouteHeader";
@@ -9,13 +9,59 @@ import { MaterialIcons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import { Menu, HamburgerIcon, Box, Pressable, Center } from "native-base";
 import COLORS from "../Utils/Constant";
+import { useState } from "react";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const ConvertCurrency = ({ navigation }) => {
+  const [targetedValue, setTargetedValue] = useState(null);
+  const [baseValues, setBaseValues] = useState([]);
 
-  const convertHandler = () => {
-    
-  }
-  
+  const convertHandler = () => {};
+
+  const targetredInputHandler = (text) => {
+    console.log("inputVal", text);
+    setTargetedValue(text);
+  };
+  const baseInputHandler = (text) => {
+    console.log("inputVal new", text);
+    setBaseValues([...baseValues, text]);
+  };
+
+  console.log("targetedValue", targetedValue);
+  console.log("baseInputHandler", baseValues);
+
+  const apicallHandler = async () => {
+    let user_token = await AsyncStorage.getItem("token");
+    user_token = JSON.parse(user_token);
+
+    console.log("user_token: ", typeof user_token, user_token);
+    await fetch("http://api.qwixk.com/coin-alter/rates", {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${user_token}`,
+      },
+      body: JSON.stringify({
+        base_currency: "USD",
+        target_currencies: ["EUR", "GBP"],
+      }),
+    })
+      .then((response) => response.json())
+      .then((json) => {
+        console.log("Profile ", json);
+        console.log("Profile target_currencies", json.target_currencies);
+      })
+      .catch((error) => {
+        console.error("error", error);
+      });
+
+    console.log(user_token);
+
+    // navigation.navigate("Home");
+  };
+
   return (
     <View>
       <LinearGradient
@@ -117,14 +163,25 @@ const ConvertCurrency = ({ navigation }) => {
                   alignItems: "flex-end",
                 }}
               >
-                <Input
-                  onChangeText={() => convertHandler()}
-                  placeholder="Amount"
-                  w="100%"
-                  style={{ borderRadius: 20 }}
-                  variant="filled"
-                  backgroundColor="#ffffff"
+                <TextInput
+                  style={styles.textInputStyle}
+                  placeholderTextColor="#60605e"
+                  numeric
+                  keyboardType={"numeric"}
+                  onChangeText={(text) => {
+                    apicallHandler();
+                    targetredInputHandler(text);
+                  }}
                 />
+                {/* <TextInput
+                  onChangeText={() => convertHandler()}
+                  placeholder="Amount border"
+                  // w="100%"
+                  // rounded
+                  // style={{ borderRadius: 60 }}
+                  // variant="filled"
+                  // backgroundColor="#ffffff"
+                /> */}
               </View>
             </View>
           </HStack>
@@ -175,12 +232,20 @@ const ConvertCurrency = ({ navigation }) => {
                   alignItems: "flex-end",
                 }}
               >
-                <Input
+                {/* <Input
                   placeholder="Amount"
                   w="100%"
                   style={{ borderRadius: 20 }}
                   variant="filled"
                   backgroundColor="#F1F1F1"
+                /> */}
+                <TextInput
+                  style={styles.textInputStyle1}
+                  // placeholder="Enter Numeric Values Only"
+                  placeholderTextColor="#60605e"
+                  numeric
+                  keyboardType={"numeric"}
+                  onChangeText={(text) => baseInputHandler(text)}
                 />
               </View>
             </View>
@@ -229,12 +294,19 @@ const ConvertCurrency = ({ navigation }) => {
                   alignItems: "flex-end",
                 }}
               >
-                <Input
+                {/* <Input
                   placeholder="Amount"
                   w="100%"
                   style={{ borderRadius: 20 }}
                   variant="filled"
                   backgroundColor="#F1F1F1"
+                /> */}
+                <TextInput
+                  style={styles.textInputStyle1}
+                  placeholder=""
+                  placeholderTextColor="#60605e"
+                  numeric
+                  keyboardType={"numeric"}
                 />
               </View>
             </View>
@@ -293,5 +365,17 @@ const styles = StyleSheet.create({
     borderColor: "#968ef4",
     borderWidth: 2,
     // padding: 10,
+  },
+  textInputStyle: {
+    width: "100%",
+    padding: 10,
+    borderRadius: 17,
+    backgroundColor: "#ffffff",
+  },
+  textInputStyle1: {
+    width: "100%",
+    padding: 10,
+    borderRadius: 17,
+    backgroundColor: "#f5f5f5",
   },
 });
