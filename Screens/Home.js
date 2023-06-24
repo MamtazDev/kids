@@ -73,7 +73,7 @@ function Home() {
         },
       }}
 
-      // screenOptions={{ ShowLabel: false }}
+    // screenOptions={{ ShowLabel: false }}
     >
       <Tab.Screen
         name="Home"
@@ -86,7 +86,6 @@ function Home() {
               style={{
                 alignItems: "center",
                 justifyContent: "center",
-                top: 10,
               }}
             >
               <Image
@@ -117,7 +116,6 @@ function Home() {
               style={{
                 alignItems: "center",
                 justifyContent: "center",
-                top: 10,
               }}
             >
               <Image
@@ -145,16 +143,26 @@ function Home() {
         // CustomeTabBarButton
         options={{
           tabBarIcon: ({ focused }) => (
-            <Image
-              source={require("../assets/icons/currencyList.png")}
-              resizeMode="contain"
-              style={{
-                width: 15,
-                height: 15,
-                tintColor: focused ? "#ffffff" : "#ffffff",
-              }}
-              alt="image"
-            />
+
+            <View>
+
+              <Image
+                source={require("../assets/icons/currencyList.png")}
+                resizeMode="contain"
+                style={{
+                  width: 22,
+                  height: 22,
+                  tintColor: focused ? "#ffffff" : "#ffffff",
+                }}
+                alt="image"
+              />
+
+              {/* <Text
+                style={{ color: focused ? "#2E20CA" : "#748c94", fontSize: 8,}}
+              >
+                Analytics
+              </Text> */}
+            </View>
           ),
           tabBarButton: (props) => <CustomeTabBarButton {...props} />,
         }}
@@ -168,7 +176,6 @@ function Home() {
               style={{
                 alignItems: "center",
                 justifyContent: "center",
-                top: 10,
               }}
             >
               <Image
@@ -199,7 +206,6 @@ function Home() {
               style={{
                 alignItems: "center",
                 justifyContent: "center",
-                top: 10,
               }}
             >
               <Image

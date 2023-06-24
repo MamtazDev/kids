@@ -38,6 +38,8 @@ export default function Analytics() {
   const [date, setDate] = useState(new Date(1598051730000));
   const [show, setShow] = useState(false);
 
+  const [analyticData, setAnalyticData] = useState([]);
+
   const [currency1, setCurrency1] = useState("");
   const [currency2, setCurrency2] = useState("");
   const [openCurrency1, setOpenCurrency1] = useState(false);
@@ -75,6 +77,14 @@ export default function Analytics() {
     console.log("user_token: ", typeof user_token, user_token);
   };
 
+
+  function extractINROpenValues(data) {
+    const inrData = data.target_currencies.INR;
+    const inrOpenValues = inrData.map(item => item.open);
+    return inrOpenValues;
+  }
+
+
   const refetchData = async () => {
     let user_token = await AsyncStorage.getItem("token");
     user_token = JSON.parse(user_token);
@@ -98,7 +108,14 @@ export default function Analytics() {
     })
       .then((response) => response.json())
       .then((json) => {
-        console.log("Profile ", json);
+        console.log("Profile Data:  ", json);
+
+        const inrOpenValues = extractINROpenValues(json);
+        console.log(inrOpenValues);
+        setAnalyticData(inrOpenValues)
+        
+
+
       })
       .catch((error) => {
         console.error(error);
@@ -160,7 +177,7 @@ export default function Analytics() {
               borderWidth={2}
               borderColor={"white"}
               borderRadius={30}
-              px={10}
+              px="10%"
             >
               <Text color={day === "Day" ? "white" : "black"}>7 Days</Text>
             </Button>
@@ -178,7 +195,8 @@ export default function Analytics() {
               borderWidth={2}
               borderColor={"white"}
               borderRadius={30}
-              px={7}
+              // px={7}
+              px="8%"
             >
               <Text color={day === "7 Days" ? "white" : "black"}>30 Days</Text>
             </Button>
@@ -198,7 +216,8 @@ export default function Analytics() {
               borderWidth={2}
               borderColor={"white"}
               borderRadius={30}
-              px={8}
+              // px={8}
+              px= "6%"
             >
               <Text color={day === "30 Days" ? "white" : "black"}>
                 365 Days
@@ -249,6 +268,7 @@ export default function Analytics() {
             onChange={onChange}
           />
         )}
+
 
         <HStack alignItems={"center"} mx={6} my={10}>
           {showCurrencyResult ? (
@@ -315,7 +335,7 @@ export default function Analytics() {
           )}
         </HStack>
 
-        <ChartDefault DisplayDay={day} />
+        <ChartDefault DisplayDay={day}  analyticData={analyticData}/>
       </ExpoLinearGradient>
 
       <Box

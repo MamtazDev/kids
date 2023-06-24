@@ -8,13 +8,14 @@ import { AreaChart, Grid } from "react-native-svg-charts";
 import * as shape from "d3-shape";
 
 const gradientColors = ["#ffffff", "#000000"]; // Define your gradient colors here
-const ChartDefault = ({ DisplayDay }) => {
+const ChartDefault = ({ DisplayDay, analyticData }) => {
   const data = [50, 30, 50, 40, 95, 30, 50, 40, 80, 24, 50];
   const data1 = [50, 30, 24, 50, 50, 40, 95, 30, 50, 40, 80];
   const data2 = [30, 50, 40, 80, 24, 50, 50, 30, 50, 40, 95];
 
-  const AnayticsData =
-    DisplayDay === "Day" ? data : DisplayDay === "7 Days" ? data1 : data2;
+  const AnayticsData = analyticData
+    // DisplayDay === "Day" ? data : DisplayDay === "7 Days" ? data1 : data2;
+    // DisplayDay === "Day" ? data : DisplayDay === "7 Days" ? data1 : data2;
 
   return (
     <AreaChart

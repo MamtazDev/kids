@@ -34,7 +34,7 @@ const Notification = ({ navigation }) => {
         ]}
       >
         <Box paddingX={"5%"} marginTop={"5%"}>
-          <RouteHeader title="Custom Notification" />
+          <RouteHeader title= "Custom Notification" />
           <ScrollView
             showsVerticalScrollIndicator={false}
             showsHorizontalScrollIndicator={false}

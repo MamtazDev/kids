@@ -30,8 +30,9 @@ const CurrencysData = () => {
           backgroundColor="#ffffff"
           padding={3}
           borderRadius={10}
-          shadow={1}
-          shadowColor="red"
+          style={{ elevation: 1 }}
+          
+          shadowColor="#050505"
         >
           <View display={"flex"} flexDirection={"row"}>
             <Avatar
