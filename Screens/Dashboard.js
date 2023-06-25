@@ -17,31 +17,30 @@ const Dashboard = () => {
         // Button Linear Gradient
         colors={[
           "#AAFFFBE5",
-          "#4E43FFDF",
+          "#D1CEFF",
+          "#82AEFD",
           "#8981FEDF",
-          "#ffffff",
-          "#ffffff",
-          "#ffffff",
-          "#ffffff",
-          "#ffffff",
-          "#ffffff",
+          "#E4F0FF",
+          "#8981FEDF",
+          "#F5F5F5",
         ]}
       >
         <SafeAreaView style={styles.container}>
           <View style={styles.wrapper}>
             {/* <Text>Dashboard</Text> */}
             <DashboardHeader />
-
             {/* View for weeklu summery */}
             <Summery />
           </View>
           <Cards />
-          <View style={styles.wrapper}>
+          <View style={styles.wrapperBottom}>
             <CurrencysData />
           </View>
         </SafeAreaView>
       </LinearGradient>
     </ScrollView>
+
+
   );
 };
 
@@ -50,7 +49,12 @@ export default Dashboard;
 const styles = StyleSheet.create({
   wrapper: {
     padding: 20,
-    marginBottom: 50,
+    marginBottom: 9,
+    //   backgroundColor: COLORS.purple,
+  },
+  wrapperBottom: {
+    padding: 20,
+    marginBottom: 90,
     //   backgroundColor: COLORS.purple,
   },
   container: {

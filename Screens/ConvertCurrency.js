@@ -6,6 +6,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import RouteHeader from "../Utils/RouteHeader";
 import Dropdown from "../Utils/Dropdown";
 import { MaterialIcons } from "@expo/vector-icons";
+import { FontAwesome } from '@expo/vector-icons';
 import { AntDesign } from "@expo/vector-icons";
 import { Menu, HamburgerIcon, Box, Pressable, Center } from "native-base";
 import COLORS from "../Utils/Constant";
@@ -98,7 +99,7 @@ const ConvertCurrency = ({ navigation }) => {
               </Text>
               <HStack alignItems="center">
                 <Avatar
-                  size="sm"
+                  size="md"
                   mr={2}
                   bg="green.500"
                   source={{
@@ -208,6 +209,31 @@ const ConvertCurrency = ({ navigation }) => {
               <Text bold fontSize="md" textAlign="center">
                 USD
               </Text>
+              <Box ml={2} alignItems="flex-start">
+                  <Menu
+                    shadow={2}
+                    w="90"
+                    trigger={(triggerProps) => {
+                      return (
+                        <Pressable
+                          accessibilityLabel="More options menu"
+                          {...triggerProps}
+                        >
+                          <FontAwesome name="caret-down" size={20} color="black" />
+                        </Pressable>
+                      );
+                    }}
+                  >
+                    <Menu.Item>USD</Menu.Item>
+                    <Menu.Item>EUR</Menu.Item>
+                    <Menu.Item>JPY</Menu.Item>
+                    <Menu.Item>GBP</Menu.Item>
+                    <Menu.Item>CAD</Menu.Item>
+                    <Menu.Item>SEK</Menu.Item>
+                    <Menu.Item>MXN</Menu.Item>
+                    <Menu.Item>NOK</Menu.Item>
+                  </Menu>
+                </Box>
             </HStack>
             <View
               style={{
@@ -270,6 +296,31 @@ const ConvertCurrency = ({ navigation }) => {
               <Text bold fontSize="md" textAlign="center">
                 Riyal
               </Text>
+              <Box ml={2} alignItems="flex-start">
+                  <Menu
+                    shadow={2}
+                    w="90"
+                    trigger={(triggerProps) => {
+                      return (
+                        <Pressable
+                          accessibilityLabel="More options menu"
+                          {...triggerProps}
+                        >
+                          <FontAwesome name="caret-down" size={20} color="black" />
+                        </Pressable>
+                      );
+                    }}
+                  >
+                    <Menu.Item>USD</Menu.Item>
+                    <Menu.Item>EUR</Menu.Item>
+                    <Menu.Item>JPY</Menu.Item>
+                    <Menu.Item>GBP</Menu.Item>
+                    <Menu.Item>CAD</Menu.Item>
+                    <Menu.Item>SEK</Menu.Item>
+                    <Menu.Item>MXN</Menu.Item>
+                    <Menu.Item>NOK</Menu.Item>
+                  </Menu>
+                </Box>
             </HStack>
             <View
               style={{
@@ -327,7 +378,7 @@ const ConvertCurrency = ({ navigation }) => {
                   }}
                 >
                   <AntDesign name="pluscircleo" size={18} color="white" />
-                  Add More
+                  <Text style={{fontSize:10  , color:'transparent'}}>d</Text> Add More
                 </Text>
               </Button>
             </Box>

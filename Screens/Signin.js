@@ -45,7 +45,6 @@ const Signin = ({ navigation }) => {
       } else {
         // Sign-in failed
         const errorData = await response.json();
-        // Handle the error
         console.log(errorData);
       }
     } catch (error) {
@@ -103,11 +102,7 @@ const Signin = ({ navigation }) => {
       </LinearGradient>
 
       <AppScreen>
-        <ScrollView
-          showsVerticalScrollIndicator={false}
-          showsHorizontalScrollIndicator={false}
-        >
-          <View style={styles.container}>
+          <View>
             <View style={styles.container_Input}>
               <TextInput
                 style={[
@@ -227,7 +222,7 @@ const Signin = ({ navigation }) => {
               </TouchableOpacity>
             </View>
           </View>
-        </ScrollView>
+      
       </AppScreen>
     </>
   );
@@ -236,11 +231,7 @@ const Signin = ({ navigation }) => {
 export default Signin;
 
 const styles = StyleSheet.create({
-  container: {
-    // width: "90%",
-    // alignSelf: "center",
-    // marginBottom: 100,
-  },
+
   main_title: {
     marginTop: 20,
   },

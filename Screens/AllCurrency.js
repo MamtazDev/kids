@@ -12,8 +12,8 @@ import {
 } from "native-base";
 import React, { useState } from "react";
 import { SafeAreaView } from "react-native";
-import { StyleSheet, StatusBar } from "react-native";
-import { ScrollView } from "native-base";
+import { StyleSheet, StatusBar, ScrollView } from "react-native";
+// import { ScrollView } from "native-base";
 import RouteHeader from "../Utils/RouteHeader";
 
 import { AntDesign } from "@expo/vector-icons";
@@ -51,7 +51,10 @@ function AllCurrency({ navigation }) {
           <View style={{ margin: 10 }}></View>
 
           <View style={styles.converted}>
-            <ScrollView>
+            <ScrollView style={{
+              height:300,
+              flex: 1,
+            }} >
               {/* All Favorites Currency showlist */}
               {AllCurrency.length > 0 &&
                 AllCurrency.map((item, index) => (
@@ -74,7 +77,7 @@ function AllCurrency({ navigation }) {
                           fontSize: 18,
                           color: "white",
                           fontWeight: "bold",
-                          marginLeft: 5,
+                          marginLeft: 15,
                           // backgroundColor: "#e6e6e6",
                         }}
                       >

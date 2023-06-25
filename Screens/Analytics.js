@@ -341,8 +341,8 @@ export default function Analytics() {
       <Box
         height="210px"
         mt={10}
-        mx={10}
-        mb="100"
+        mx={5}
+        mb="110"
         backgroundColor="#6456FF"
         borderRadius={20}
         alignItems="center"
@@ -350,7 +350,7 @@ export default function Analytics() {
       >
         <Box
           height="60px"
-          width="80%"
+          width="90%"
           mt={1}
           backgroundColor="#232631"
           borderRadius={50}

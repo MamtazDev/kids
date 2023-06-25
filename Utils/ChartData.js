@@ -3,7 +3,7 @@ export const chartData = [
     name: "Alex Rutuynos",
     value: 0.005,
     currency: "¥129.89",
-    data: [50, 10, 40, 95, -4, 53, -53, 24, 50, -20, -80],
+    data: [50, 10, 40, 70,13, -53, 24, 50, -20, -80],
   },
   {
     name: "John Doe",

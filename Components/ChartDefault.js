@@ -23,7 +23,7 @@ const ChartDefault = ({ DisplayDay, analyticData }) => {
       data={AnayticsData}
       contentInset={{ top: 30 }}
       curve={shape.curveNatural}
-      svg={{ stroke: "#2E20CA", strokeWidth: "1", fill: "#CCE7FF" }}
+      svg={{ stroke: "#BDC7FE", strokeWidth: "2", fill: "#CCE7FF" }}
     >
       {/* <Grid /> */}
       <Defs>

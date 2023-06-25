@@ -28,7 +28,7 @@ const Cards = () => {
       {chartData.map((item, index) => (
         <Box
           key={index}
-          bg="white"
+          // bg="white"
           rounded="2xl"
           width={260}
           height={280}
@@ -39,7 +39,7 @@ const Cards = () => {
             // flex={8}
             // backgroundColor="#2E20CA"
             // alignItems={"center"}
-            paddingTop={4}
+            // paddingTop={1}
           >
             <LinearGradient
               style={{
@@ -55,8 +55,8 @@ const Cards = () => {
                 height={38}
                 backgroundColor="#232631B8"
                 text
-                mt={1}
-                mb={2}
+                mt={2}
+                // mb={2}
                 ml="30%"
                 borderRadius={30}
                 p={1}
@@ -75,7 +75,7 @@ const Cards = () => {
               </Button>
 
               <LineChart
-                style={{ height: 120, width: 250, padding: 10 }}
+                style={{ height: 140,  padding: 10 }}
                 data={item.data}
                 svg={{ stroke: "#ffffff", strokeWidth: "3" }}
                 //   animate={true}
