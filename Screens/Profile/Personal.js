@@ -36,18 +36,7 @@ const Personal = ({ navigation }) => {
   };
   return (
     <>
-      {/* <HStack mt={5} justifyContent="space-between">
-        <TouchableOpacity onPress={() => setShowModal(true)}>
-          <Feather
-            name="x"
-            style={{ fontSize: 20, fontWeight: "bold", color: "#222222" }}
-          />
-        </TouchableOpacity>
-        <Text style={{ fontSize: 20, fontWeight: "bold", color: "#222222" }}>
-          Personal Info
-        </Text>
-        <Text></Text>
-      </HStack> */}
+     
 
       <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
         <Modal.Content maxWidth="400px">
@@ -88,11 +77,12 @@ const Personal = ({ navigation }) => {
       <LinearGradient
         // Button Linear Gradient
         colors={[
-          // "rgba(170, 255, 251, 0.5)",
-          "rgba(78, 67, 255, 0.87)",
-          "rgba(137, 129, 254, 0.87)",
-          "#ffffff",
-        ]}
+
+          "rgba(170, 255, 251, 0.5)",
+          "rgba(78, 67, 255, 0.57)",
+          "rgba(137, 129, 254, 0.47)",
+          // "#fbfbfb",
+          "#fbfbfb"]}
       >
         <VStack alignItems="center" pt={5}>
           <Box padding="20px" style={{ width: "100%" }}>
@@ -147,7 +137,7 @@ const Personal = ({ navigation }) => {
             <Text style={styles.header_email}>nahid.muradabir@gmail.com</Text>
           </Box>
         </VStack>
-      </LinearGradient>
+      
       <ScrollView showsHorizontalScrollIndicator={false} mt={5}>
         <Box style={{ marginHorizontal: 20 }}>
           <FormControl backgroundColor={"white"} padding={3} rounded={10}>
@@ -236,6 +226,8 @@ const Personal = ({ navigation }) => {
           </TouchableOpacity>
         </Box>
       </ScrollView>
+
+      </LinearGradient>
     </>
   );
 };
@@ -245,14 +237,14 @@ export default Personal;
 const styles = StyleSheet.create({
   text: {
     paddingHorizontal: 10,
-    borderColor: "#38E5C6",
+    borderColor:  COLORS.primary,
     borderWidth: 1,
     width: "80%",
     marginTop: 5,
     borderRadius: 4,
     textAlign: "center",
     padding: 4,
-    color: "#38E5C6",
+    color:  COLORS.primary,
     // backgroundColor
   },
 
@@ -269,7 +261,9 @@ const styles = StyleSheet.create({
     marginBottom: 40,
   },
   header_email: {
-    color: "#9D9D9D",
+    color: "#ffffff",
+    fontSize: 16,
+    // fontWeight: "bold",
   },
   text1: {
     color: "#38E5C6",

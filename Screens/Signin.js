@@ -64,11 +64,10 @@ const Signin = ({ navigation }) => {
       <LinearGradient
         // Button Linear Gradient
         colors={[
-
           "rgba(170, 255, 251, 0.5)",
           "rgba(78, 67, 255, 0.57)",
           "rgba(137, 129, 254, 0.47)",
-          // "#fbfbfb",
+          "#fbfbfb",
           "#fbfbfb"]}
         style={{
           paddingTop: 100,

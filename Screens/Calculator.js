@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions  } from "react-native";
 import React, { useState } from "react";
 import { LinearGradient } from "expo-linear-gradient";
 
@@ -13,6 +13,8 @@ import {
   View,
 } from "native-base";
 
+
+const window = Dimensions.get("window").width;
 const Calculator = () => {
   const [result, setResult] = useState("");
   const [expression, setExpression] = useState("");
@@ -70,7 +72,7 @@ const Calculator = () => {
                       // marginTop={1}
                       fontWeight={700}
                     >
-                      Calculator
+                      Calculator 
                     </Text>
                   </View>
 
@@ -112,12 +114,12 @@ const Calculator = () => {
       <View
         width={"full"}
         height={560}
-        roundedTop={40}
+        roundedTop={10}
         backgroundColor={"blue.100"}
         paddingX={5}
         // marginBottom={5}
       >
-        <VStack space={2} width={"full"} marginTop={5}>
+        <VStack space={4} width={"full"} marginTop={12}>
           <HStack space={5}>
             {/* First Row */}
 
@@ -592,13 +594,13 @@ const styles = StyleSheet.create({
     background: "linear-gradient(#ffffff, #7C)",
   },
   button: {
-    padding: 12,
+    padding: 5,
 
-    width: 85,
-    height: 85,
+    width: window/5.5,
+    height: window/5.5,
     alignItems: "center",
     borderRadius: 50,
-    borderColor: "#ffffff",
-    borderWidth: 2,
+    borderColor: "#caf7fc",
+    borderWidth: 1,
   },
 });

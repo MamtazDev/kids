@@ -38,7 +38,7 @@ const Profile = ({ navigation }) => {
           >
             Profile
           </Text>
-          <TouchableOpacity onPress={() => navigation.navigate("Signin")}>
+          <TouchableOpacity onPress={() => navigation.navigate("Personal")}>
             <Image
               borderRadius={100}
               style={styles.image}
@@ -68,7 +68,7 @@ const Profile = ({ navigation }) => {
 
         {/* -------------itemss ------------- */}
 
-        <TouchableOpacity onPress={() => navigation.navigate("Personal")}>
+        <Pressable  onPress={() => navigation.navigate("Personal")}>
           <HStack
             space={3}
             mt={10}
@@ -102,9 +102,9 @@ const Profile = ({ navigation }) => {
               alt="logo"
             />
           </HStack>
-        </TouchableOpacity>
+        </Pressable >
 
-        <TouchableOpacity onPress={() => navigation.navigate("Preference")}>
+        <Pressable  onPress={() => navigation.navigate("Preference")}>
           <HStack
             space={3}
             mt={5}
@@ -138,34 +138,7 @@ const Profile = ({ navigation }) => {
               alt="logo"
             />
           </HStack>
-        </TouchableOpacity>
-
-        {/* 
-      <TouchableOpacity onPress={() => navigation.navigate("Notification")}>
-        <HStack space={3} mt={5} justifyContent="space-between" justifyItems={"center"} backgroundColor="white" paddingX={3} paddingY={6} borderRadius={10}  >
-          <View display={'flex'} flexDirection={'row'} justifyItems="center" >
-            <Image
-              source={require("../assets/icons/setting.png")}
-              style={{
-                width: 20,
-                height: 20,
-              }}
-              alt="logo"
-            />
-            <Text style={styles.title}>Notification</Text>
-          </View>
-
-          <Image
-            source={require("../assets/icons/arrowr.png")}
-            style={{
-              width: 9,
-              height: 16,
-            }}
-            alt="logo"
-          />
-
-        </HStack>
-      </TouchableOpacity> */}
+        </Pressable >
 
         <Pressable onPress={() => setLogoutModal(true)}>
           <HStack
