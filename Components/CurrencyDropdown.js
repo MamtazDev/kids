@@ -1,12 +1,13 @@
 import { StyleSheet } from "react-native";
 import React from "react";
 import { Box, HStack, Input, Menu, Pressable, Text, View } from "native-base";
-
+import {Dimensions} from 'react-native';
 import { MaterialIcons } from "@expo/vector-icons";
 
 const CurrencyDropdown = ({ ValueIsNeeded }) => {
+  const windowWidth = Dimensions.get('window').width - 40;
   return (
-    <View marginX={5}>
+    <View marginX={5} style={{ width:"20%"}}>
       {/* <Text>CurrencyDropdown</Text> */}
 
       <Box ml={0} alignItems="flex-start">
@@ -21,18 +22,18 @@ const CurrencyDropdown = ({ ValueIsNeeded }) => {
               >
                 <HStack
                   backgroundColor="#ffffff"
-                  width="410px"
+                  width={`${windowWidth}px`}
                   //   paddingright={20}
                   paddingX={2}
-                  paddingY={5}
+                  paddingY={2}
                   justifyContent="space-between"
                   alignItems="center"
                   //   marginY={5}
                   borderRadius={15}
                 >
                   <HStack>
-                    <Text fontSize={25} fontWeight="bold">
-                      USD
+                    <Text fontSize={25} marginLeft={2} fontWeight="bold">
+                      USD 
                     </Text>
                     <MaterialIcons
                       name="arrow-drop-down"

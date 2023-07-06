@@ -22,16 +22,18 @@ import SIngleCurrencyList from "../Components/AllCurrencyScreen/SIngleCurrencyLi
 import COLORS from "../Utils/Constant";
 import { primaryGrad } from "../Utils/GradientColor";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import BaseCurrency from "../Components/AllCurrencyScreen/BaseCurrency";
 
 function AllCurrency({ navigation }) {
   const [AllCurrency, setAllCurrency] = useState([1, 2]);
+
+  const [BaseCur, setBaseCurrency] = useState(null);
+  const [TargetedCurrency, setTargetedCurrency] = useState([]);
 
   const addMoreHandler = () => {
     const listLength = AllCurrency.length;
 
     setAllCurrency([...AllCurrency, listLength + 1]);
-
-    // navigation.navigate("Currency_add");
   };
 
   return (
@@ -44,7 +46,7 @@ function AllCurrency({ navigation }) {
             Convert Currency
           </Text>
           <Box padding="3%">
-            <SIngleCurrencyList navigation={navigation} />
+            <BaseCurrency navigation={navigation} />
           </Box>
           {/* <Text mt={2}></Text> */}
 
@@ -54,7 +56,7 @@ function AllCurrency({ navigation }) {
             <ScrollView style={{
               height:300,
               flex: 1,
-            }} >
+            }}>
               {/* All Favorites Currency showlist */}
               {AllCurrency.length > 0 &&
                 AllCurrency.map((item, index) => (

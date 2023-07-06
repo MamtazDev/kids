@@ -57,7 +57,7 @@ const CustomeTabBarButton = ({ children, onPress }) => (
 function Home() {
   return (
     <Tab.Navigator
-      initialRouteName="Currency_list"
+      initialRouteName="Analytics"
       screenOptions={{
         headerShown: false,
         tabBarShowLabel: false,

@@ -27,6 +27,7 @@ import DateTimePicker from "@react-native-community/datetimepicker";
 import { currencyList } from "../Utils/CurrencyItem";
 import ChartDefault from "../Components/ChartDefault";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import DateRange from "../Components/DateRange/DateRange";
 
 export default function Analytics() {
   const screenWidth = Dimensions.get("window").width;
@@ -226,7 +227,7 @@ export default function Analytics() {
           </ExpoLinearGradient>
         </HStack>
 
-        <View mt={7} alignItems="center">
+        {/* <View mt={7} alignItems="center">
           <ExpoLinearGradient
             colors={["#CCE7FF", "#F2FAFF", "#FFFFFF"]}
             style={{ borderRadius: 20 }}
@@ -257,8 +258,10 @@ export default function Analytics() {
               <Text color="#6456FF">{date.toDateString()}</Text>
             </Button>
           </ExpoLinearGradient>
-        </View>
+        </View> */}
 
+        <DateRange/>
+        
         {show && (
           <DateTimePicker
             testID="dateTimePicker"

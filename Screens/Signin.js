@@ -52,16 +52,25 @@ const Signin = ({ navigation }) => {
       console.error(error);
     }
 
-    // navigation.navigate("Home");
+    navigation.navigate("Home");
   };
 
   return (
     <>
+      <ScrollView
+      showsVerticalScrollIndicator={false}
+      showsHorizontalScrollIndicator={false}
+    >
       <LinearGradient
         // Button Linear Gradient
-        colors={primaryGrad}
+        colors={[
+          "rgba(170, 255, 251, 0.5)",
+          "rgba(78, 67, 255, 0.57)",
+          "rgba(137, 129, 254, 0.47)",
+          "#fbfbfb",
+          "#fbfbfb"]}
         style={{
-          paddingTop: 50,
+          paddingTop: 100,
         }}
       >
         <View>
@@ -101,8 +110,8 @@ const Signin = ({ navigation }) => {
         </View>
       </LinearGradient>
 
-      <AppScreen>
-          <View>
+      <View style={styles.wrapper}>
+          <View style={{backgroundColor:"#ffffff"}}>
             <View style={styles.container_Input}>
               <TextInput
                 style={[
@@ -181,7 +190,11 @@ const Signin = ({ navigation }) => {
                   rounded={6}
                   style={{
                     display: "flex",
-                    // justifyContent: "center"
+                    shadowColor: '#666',
+                    shadowOffset: { width: 0, height: 1 },
+                    shadowOpacity: 0.9,
+                    // shadowRadius: 10,
+                    elevation: 3
                   }}
                 >
                   <Image
@@ -223,7 +236,8 @@ const Signin = ({ navigation }) => {
             </View>
           </View>
       
-      </AppScreen>
+      </View>
+       </ScrollView>
     </>
   );
 };
@@ -231,6 +245,11 @@ const Signin = ({ navigation }) => {
 export default Signin;
 
 const styles = StyleSheet.create({
+
+  wrapper: {
+    padding:15,
+    backgroundColor:'#ffffff'
+  },
 
   main_title: {
     marginTop: 20,

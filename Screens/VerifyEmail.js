@@ -36,7 +36,13 @@ import {
         >
           <LinearGradient
             // Button Linear Gradient
-            colors={primaryGrad}
+            colors={[
+
+              "rgba(170, 255, 251, 0.5)",
+              "rgba(78, 67, 255, 0.57)",
+              "rgba(137, 129, 254, 0.47)",
+              // "#fbfbfb",
+              "#f3f3f3"]}
             style={{
               paddingTop: 50,
             }}
@@ -67,9 +73,9 @@ import {
                 </Text>
               </Center>
             </View>
-          </LinearGradient>
+         
   
-          <View style={styles.container} marginTop={25}>
+          <View style={styles.container} paddingTop={25}>
             <View style={styles.container_Input}>
               <TextInput
                 style={[
@@ -120,6 +126,7 @@ import {
               </TouchableOpacity>
             </View>
           </View>
+          </LinearGradient>
   
           {/* </LinearGradient> */}
         </ScrollView>
@@ -134,6 +141,7 @@ import {
       // width: "90%",
       // alignSelf: "center",
       // marginBottom: 100,
+      // backgroundColor:'#f3f3f3'
     },
     main_title: {
       marginTop: 99,

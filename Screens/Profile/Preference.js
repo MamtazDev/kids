@@ -18,15 +18,18 @@ const Preference = ({ navigation }) => {
       <LinearGradient
         // Button Linear Gradient
         colors={[
-          // "rgba(170, 255, 251, 0.5)",
-          "rgba(78, 67, 255, 0.87)",
-          "rgba(137, 129, 254, 0.87)",
-          // "#ffffff",
-          "#e6e6e6",
+
+          "rgba(170, 255, 251, 0.5)",
+          // "rgba(137, 129, 254, 0.47)",
+          "rgba(78, 67, 255, 0.57)",
+          "rgba(137, 129, 254, 0.47)",
+          // "#fbfbfb",
+          "#f3f3f3",
+          "#f3f3f3"
         ]}
       >
         <TouchableOpacity onPress={() => navigation.navigate("Security")}>
-          <VStack alignItems="center" marginTop="10%" paddingBottom="10%">
+          <VStack alignItems="center" marginTop="20%" paddingBottom="10%">
             <TouchableOpacity onPress={() => navigation.navigate("Signin")}>
               <Image
                 borderRadius={100}
@@ -55,7 +58,7 @@ const Preference = ({ navigation }) => {
             </Box>
           </VStack>
         </TouchableOpacity>
-      </LinearGradient>
+     
       <VStack space={4} marginTop={10} marginX={5}>
         <TouchableOpacity onPress={() => navigation.navigate("Notification")}>
           <Text fontSize="md" fontWeight="bold">
@@ -164,6 +167,7 @@ const Preference = ({ navigation }) => {
           </HStack>
         </View>
       </VStack>
+      </LinearGradient>
 
       {/* <VStack>
           <Text fontSize="lg" fontWeight="bold">
@@ -253,7 +257,7 @@ const styles = StyleSheet.create({
     marginBottom: 40,
   },
   header_email: {
-    color: "#9D9D9D",
+    color: "#ffffff",
   },
   text1: {
     color: "#38E5C6",

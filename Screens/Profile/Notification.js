@@ -18,6 +18,7 @@ import {
   VStack,
 } from "native-base";
 import COLORS from "../../Utils/Constant";
+import { primaryGrad } from "../../Utils/GradientColor";
 
 const Notification = ({ navigation }) => {
   const [isEnabled, setIsEnabled] = useState(false);
@@ -26,13 +27,7 @@ const Notification = ({ navigation }) => {
     <>
       <LinearGradient
         // Button Linear Gradient
-        colors={[
-          // "rgba(170, 255, 251, 0.5)",
-          "rgba(78, 67, 255, 0.87)",
-          "rgba(137, 129, 254, 0.87)",
-          // "#ffffff",
-          "#e6e6e6",
-        ]}
+        colors={primaryGrad}
       >
         <Box paddingY="50px" paddingX="20px">
           <RouteHeader title="Notification" />
@@ -45,7 +40,7 @@ const Notification = ({ navigation }) => {
           >
             You don’t have any notification
           </Text>
-          <Text marginTop={2} style={{ alignItems: "center" }}>
+          <Text marginTop={2} marginX={1} style={{ alignItems: "center" }}>
             Notification allows you to be notified when a currency’s{" "}
           </Text>
           <Text paddingBottom={5}>
@@ -53,7 +48,6 @@ const Notification = ({ navigation }) => {
             will increase or goes above or below a set value
           </Text>
         </Center>
-      </LinearGradient>
 
       <ScrollView
         showsVerticalScrollIndicator={false}
@@ -77,10 +71,18 @@ const Notification = ({ navigation }) => {
             <HStack
               space={3}
               mt={5}
-              justifyContent="space-between"
+              justifyContent="space-evenly"
               backgroundColor="white"
-              padding={3}
+              paddingY={2}
+              paddingX={1}
               borderRadius={10}
+              style={{
+                shadowColor: '#e6e6e6',
+                shadowOffset: { width: 0, height: 1 },
+                shadowOpacity: 1,
+                shadowRadius: 10,
+                elevation: 10
+              }}
             >
               <View
                 display={"flex"}
@@ -98,8 +100,8 @@ const Notification = ({ navigation }) => {
                   }}
                   alt="logo"
                 />
-                <View marginLeft={8} width={250}>
-                  <Text bold fontSize="md">
+                <View marginLeft={8} width="70%">
+                  <Text bold fontSize="sm">
                     Notify me when USD is increase
                   </Text>
                   <Text fontSize="sm">Date: 12-02-20223</Text>
@@ -110,7 +112,9 @@ const Notification = ({ navigation }) => {
                   style={{
                     width: 20,
                     height: 25,
+                    resizeMode: 'contain',
                   }}
+                  
                   alt="logo"
                 />
               </View>
@@ -167,6 +171,8 @@ const Notification = ({ navigation }) => {
         </Text>
       </VStack> */}
       </ScrollView>
+      
+      </LinearGradient>
     </>
   );
 };
