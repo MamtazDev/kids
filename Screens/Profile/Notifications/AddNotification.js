@@ -31,7 +31,7 @@ const AddNotification = ({ navigation }) => {
   useEffect(() => {}, [IsIncreate]);
 
   return (
-    <View style={{ backgroundColor: "#ffffff" }}>
+    <View style={{ backgroundColor: "#f3f3f3" }}>
       <ScrollView
         showsVerticalScrollIndicator={false}
         showsHorizontalScrollIndicator={false}
@@ -41,9 +41,10 @@ const AddNotification = ({ navigation }) => {
           colors={[
             // "rgba(170, 255, 251, 0.5)",
             "rgba(78, 67, 255, 0.87)",
+            // "rgba(137, 129, 254, 0.87)",
             "rgba(137, 129, 254, 0.87)",
-            "rgba(137, 129, 254, 0.87)",
-            "#ffffff",
+            // "#f3f3f3",
+            "#f3f3f3",
             // "#e6e6e6",
           ]}
         >
@@ -51,14 +52,14 @@ const AddNotification = ({ navigation }) => {
             <RouteHeader title="Add Notification" />
           </Box>
 
-          <Center width={"full"}>
+          {/* <Center width={"full"}>
             <Text
               marginBottom={10}
               style={{ fontSize: 18, color: "black", fontWeight: "bold" }}
             >
               Notify me when
             </Text>
-          </Center>
+          </Center> */}
 
           <CurrencyDropdown />
           <HStack marginX={5} mt={5} justifyContent="space-between">
@@ -77,10 +78,10 @@ const AddNotification = ({ navigation }) => {
               // rounded
               _text={{
                 color: "#1F2937",
-                paddingX: "7",
-                paddingY: "1",
+                paddingX: "5",
+                // paddingY: "0",
                 fontWeight: "bold",
-                fontSize: 20,
+                fontSize: 18,
               }}
               onPress={() => setIsIncreate(true)}
               // onPress={(IsIncreate) => setIsIncreate(!IsIncreate)}
@@ -95,63 +96,16 @@ const AddNotification = ({ navigation }) => {
               borderRadius={18}
               _text={{
                 color: "#1F2937",
-                paddingX: "7",
-                paddingY: "1",
+                paddingX: "6",
+                // paddingY: "0",
                 fontWeight: "bold",
-                fontSize: 20,
+                fontSize: 14,
               }}
               onPress={() => setIsIncreate(false)}
             >
               Is Decrease
             </Button>
-            {/* <Button
-              size={"md"}
-              // rounded
-              paddingX={2}
-              // paddingY={5}
-               backgroundColor="#F6FBFF"
-              style={{ elevation: 1 }}
-              _text={{
-                color: "#1F2937",
-                paddingX: "10",
-                paddingY: "1",
-                fontWeight: "bold",
-                fontSize: 20,
-              }}
-            >
-              BUTTON
-            </Button> */}
-
-            {/* <Center
-              width={"50%"}
-              // height={"50px"}
-              marginRight={3}
-              justifyContent="space-between"
-              justifyItems={"center"}
-              backgroundColor="white"
-              paddingX={3}
-              paddingY={6}
-              borderRadius={10}
-            >
-              <Text fontWeight={"bold"} fontSize={17} style={styles.title}>
-             
-              </Text>
-            </Center> */}
-
-            {/* <Center
-              width={"45%"}
-              marginLeft={3}
-              justifyContent="space-between"
-              justifyItems={"center"}
-              backgroundColor="white"
-              paddingX={3}
-              paddingY={6}
-              borderRadius={10}
-            >
-              <Text fontWeight={"bold"} fontSize={17} style={styles.title}>
             
-              </Text>
-            </Center> */}
           </HStack>
         </LinearGradient>
 
@@ -263,49 +217,49 @@ const AddNotification = ({ navigation }) => {
         </HStack> */}
         <CurrencyDropdown ValueIsNeeded={true} />
         <HStack marginX={5} mt={5} justifyContent="space-between">
-          <Button
-            backgroundColor="#F6FBFF"
-            style={{ elevation: 1 }}
-            // style={{
-            //   borderTopWidth: IsIncreate === true ? 2 : 0,
-            //   borderBottomWidth: IsIncreate === true ? 2 : 0,
-            //   borderLeftWidth: IsIncreate === true ? 1 : 0,
-            //   borderRightWidth: IsIncreate === true ? 2 : 0,
-            // }}
-            borderWidth={IsIncreate === true ? 1 : 0}
-            borderColor={COLORS.primary}
-            borderRadius={18}
-            // rounded
-            _text={{
-              color: "#1F2937",
-              paddingX: "7",
-              paddingY: "1",
-              fontWeight: "bold",
-              fontSize: 20,
-            }}
-            onPress={() => setIsIncreate(true)}
-            // onPress={(IsIncreate) => setIsIncreate(!IsIncreate)}
-          >
-            Is Increase
-          </Button>
-          <Button
-            backgroundColor="#F6FBFF"
-            style={{ elevation: 1 }}
-            borderWidth={IsIncreate === false ? 1 : 0}
-            borderColor={COLORS.primary}
-            borderRadius={18}
-            _text={{
-              color: "#1F2937",
-              paddingX: "7",
-              paddingY: "1",
-              fontWeight: "bold",
-              fontSize: 20,
-            }}
-            onPress={() => setIsIncreate(false)}
-          >
-            Is Decrease
-          </Button>
-          {/* <Button
+            <Button
+              backgroundColor="#F6FBFF"
+              style={{ elevation: 1 }}
+              // style={{
+              //   borderTopWidth: IsIncreate === true ? 2 : 0,
+              //   borderBottomWidth: IsIncreate === true ? 2 : 0,
+              //   borderLeftWidth: IsIncreate === true ? 1 : 0,
+              //   borderRightWidth: IsIncreate === true ? 2 : 0,
+              // }}
+              borderWidth={IsIncreate === true ? 1 : 0}
+              borderColor={COLORS.primary}
+              borderRadius={18}
+              // rounded
+              _text={{
+                color: "#1F2937",
+                paddingX: "5",
+                // paddingY: "0",
+                fontWeight: "bold",
+                fontSize: 18,
+              }}
+              onPress={() => setIsIncreate(true)}
+              // onPress={(IsIncreate) => setIsIncreate(!IsIncreate)}
+            >
+              Is Increase
+            </Button>
+            <Button
+              backgroundColor="#F6FBFF"
+              style={{ elevation: 1 }}
+              borderWidth={IsIncreate === false ? 1 : 0}
+              borderColor={COLORS.primary}
+              borderRadius={18}
+              _text={{
+                color: "#1F2937",
+                paddingX: "6",
+                // paddingY: "0",
+                fontWeight: "bold",
+                fontSize: 14,
+              }}
+              onPress={() => setIsIncreate(false)}
+            >
+              Is Decrease
+            </Button>
+            {/* <Button
               size={"md"}
               // rounded
               paddingX={2}
@@ -323,7 +277,7 @@ const AddNotification = ({ navigation }) => {
               BUTTON
             </Button> */}
 
-          {/* <Center
+            {/* <Center
               width={"50%"}
               // height={"50px"}
               marginRight={3}
@@ -339,7 +293,7 @@ const AddNotification = ({ navigation }) => {
               </Text>
             </Center> */}
 
-          {/* <Center
+            {/* <Center
               width={"45%"}
               marginLeft={3}
               justifyContent="space-between"
@@ -353,7 +307,7 @@ const AddNotification = ({ navigation }) => {
             
               </Text>
             </Center> */}
-        </HStack>
+          </HStack>
         {/* <TouchableOpacity>
           <Box alignItems="center">
             <Box width="85%" justifyContent="center">

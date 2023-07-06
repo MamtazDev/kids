@@ -23,7 +23,7 @@ const Signup = ({ navigation }) => {
 
   const [username, setUsername] = React.useState("");
   // const [password, setPassword] = useState('');
- 
+
   // const asyncStorageData =   "dihan"
   const submitHandler = async () => {
     try {
@@ -44,7 +44,7 @@ const Signup = ({ navigation }) => {
         const data = await response.json();
         // Do something with the response data
         console.log(data.message);
-        data.message && navigation.navigate("VerifyEmail", { email:  'nahid.muradabir@gmail.com' } );
+        data.message && navigation.navigate("VerifyEmail", { email: 'nahid.muradabir@gmail.com' });
       } else {
         // Sign-in failed
         const errorData = await response.json();
@@ -56,9 +56,9 @@ const Signup = ({ navigation }) => {
       console.error(error);
     }
 
-    navigation.navigate("VerifyEmail",{ email:  'nahid.muradabir@gmail.com' } );
+    navigation.navigate("VerifyEmail", { email: 'nahid.muradabir@gmail.com' });
   };
-  
+
 
 
 
@@ -66,13 +66,13 @@ const Signup = ({ navigation }) => {
     let user = await AsyncStorage.getItem('user_details');
     user = JSON.parse(user);
     console.log(typeof user, user);
-  
+
     // const name = await AsyncStorage.getItem("name");
     // const age = await AsyncStorage.getItem("age");
     // console.log(name);
     // console.log(typeof(age), age)
   }
-  
+
 
   return (
     <>
@@ -87,7 +87,13 @@ const Signup = ({ navigation }) => {
 
         <LinearGradient
           // Button Linear Gradient
-          colors={primaryGrad}
+          colors={[
+
+            "rgba(170, 255, 251, 0.5)",
+            "rgba(78, 67, 255, 0.57)",
+            "rgba(137, 129, 254, 0.47)",
+            // "#fbfbfb",
+            "#fbfbfb"]}
           style={{
             paddingTop: 50,
           }}
@@ -115,7 +121,7 @@ const Signup = ({ navigation }) => {
                   marginTop: 6,
                 }}
               >
-                Sign Up  
+                Sign Up
               </Text>
               <Text
                 style={[
@@ -128,14 +134,15 @@ const Signup = ({ navigation }) => {
             </Center>
           </View>
         </LinearGradient>
-        <View>
 
-          {/* <Text> LoginKey: {asyncStorageData}</Text> */}
-          <Text> Use name: {user}</Text>
-          <Text> Use name: {email}</Text>
-          <Text> Use name: {password}</Text>
-        </View>
         <View style={styles.container}>
+          <View>
+
+            {/* <Text> LoginKey: {asyncStorageData}</Text> */}
+            <Text> Use name: {user}</Text>
+            <Text> Use name: {email}</Text>
+            <Text> Use name: {password}</Text>
+          </View>
           <View style={styles.container_Input}>
             <TextInput
               style={[
@@ -156,7 +163,7 @@ const Signup = ({ navigation }) => {
               style={[
                 {
                   backgroundColor: "white",
-                  height: 40,marginTop: 16,
+                  height: 40, marginTop: 16,
                   borderColor: "gray",
                   borderWidth: 1,
                   // placeholderTextColor: "gray",
@@ -200,19 +207,19 @@ const Signup = ({ navigation }) => {
               placeholder="Re-type Password"
             /> */}
 
-              <Button
-                onPress={() => showData()}
-                style={[styles.primary_btn]}
+            <Button
+              onPress={() => showData()}
+              style={[styles.primary_btn]}
+            >
+              <Text
+                style={{
+                  fontSize: 18,
+                  color: "white",
+                }}
               >
-                <Text
-                  style={{
-                    fontSize: 18,
-                    color: "white",
-                  }}
-                >
-                  Retrive data from store
-                </Text>
-              </Button>
+                Retrive data from store
+              </Text>
+            </Button>
             <TouchableOpacity onPress={() => navigation.navigate("Signin")}>
               <Button
                 onPress={() => submitHandler()}
@@ -299,9 +306,7 @@ export default Signup;
 
 const styles = StyleSheet.create({
   container: {
-    // width: "96%",
-    // alignSelf: "center",
-    // marginBottom: 100,
+    backgroundColor:'#ffffff'
   },
   main_title: {
     marginTop: 99,

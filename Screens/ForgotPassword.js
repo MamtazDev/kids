@@ -26,7 +26,13 @@ const ForgotPassword = ({ navigation }) => {
       >
         <LinearGradient
           // Button Linear Gradient
-          colors={primaryGrad}
+          colors={[
+
+            "rgba(170, 255, 251, 0.5)",
+            "rgba(78, 67, 255, 0.57)",
+            "rgba(137, 129, 254, 0.47)",
+            // "#fbfbfb",
+            "#f3f3f3"]}
           style={{
             paddingTop: 50,
           }}
@@ -58,7 +64,7 @@ const ForgotPassword = ({ navigation }) => {
               </Text>
             </Center>
           </View>
-        </LinearGradient>
+       
         <View style={styles.container} marginTop={25}>
           <View style={styles.container_Input}>
             <TextInput
@@ -94,7 +100,7 @@ const ForgotPassword = ({ navigation }) => {
             </TouchableOpacity>
           </View>
         </View>
-
+        </LinearGradient>
         {/* </LinearGradient> */}
       </ScrollView>
     </>
