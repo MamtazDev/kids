@@ -64,8 +64,8 @@ function Home() {
         tabBarStyle: {
           position: "absolute",
           bottom: 10,
-          left: 20,
-          right: 20,
+          // left: 20,
+          // right: 20,
           elevation: 1,
           backgroundColor: "#ffffff",
           borderRadius: 35,

@@ -27,7 +27,7 @@ const Profile = ({ navigation }) => {
         // Button Linear Gradient
         colors={primaryGrad}
         style={{
-          paddingTop: 50,
+          // paddingTop: 50,
         }}
       >
         <VStack alignItems="center" marginTop="20%">
@@ -279,5 +279,6 @@ const styles = StyleSheet.create({
   container: {
     height: "100%",
     backgroundColor: "#fbfbfb",
+    marginBottom:90,
   },
 });
