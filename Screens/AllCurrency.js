@@ -49,7 +49,6 @@ function AllCurrency({ navigation }) {
 
   return (
     <SafeAreaView style={styles.container}>
-
       
       {/* //Dispatch action */}
 
