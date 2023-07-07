@@ -9,9 +9,10 @@ import {
   Box,
   Button,
   IconButton,
+  FlatList,
 } from "native-base";
 import React, { useState } from "react";
-import { SafeAreaView } from "react-native";
+import { SafeAreaView, TouchableOpacity } from "react-native";
 import { StyleSheet, StatusBar, ScrollView } from "react-native";
 // import { ScrollView } from "native-base";
 import RouteHeader from "../Utils/RouteHeader";
@@ -23,12 +24,15 @@ import COLORS from "../Utils/Constant";
 import { primaryGrad } from "../Utils/GradientColor";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import BaseCurrency from "../Components/AllCurrencyScreen/BaseCurrency";
+import { useDispatch, useSelector } from "react-redux";
+import { setBaseCurr, setColor, setTargettedCurr } from "../store/colorSlice";
+
 
 function AllCurrency({ navigation }) {
   const [AllCurrency, setAllCurrency] = useState([1, 2]);
 
   const [BaseCur, setBaseCurrency] = useState(null);
-  const [TargetedCurrency, setTargetedCurrency] = useState([]);
+  const [TargetedCurrenc00y, setTargetedCurrency] = useState([]);
 
   const addMoreHandler = () => {
     const listLength = AllCurrency.length;
@@ -36,8 +40,19 @@ function AllCurrency({ navigation }) {
     setAllCurrency([...AllCurrency, listLength + 1]);
   };
 
+
+  const {base, targettedCur} = useSelector((state) => state.color); //reading the state 
+  const dispatch = useDispatch();
+
+  console.log("color", base)
+  console.log("targettedCur", targettedCur)
+
   return (
     <SafeAreaView style={styles.container}>
+
+      
+      {/* //Dispatch action */}
+
       <LinearGradient colors={primaryGrad}>
         <View style={styles.wrapper}>
           <Text bold mb={3} fontSize="xl" textAlign="center"></Text>
@@ -48,13 +63,28 @@ function AllCurrency({ navigation }) {
           <Box padding="3%">
             <BaseCurrency navigation={navigation} />
           </Box>
+
+          {/* //Dispatch action */}
+      <TouchableOpacity
+        onPress={() => dispatch(setBaseCurr("Bangladesh"))} //Dispatch action
+
+      >
+        <Text style={{ fontSize: 20 }}>Generate Random Color</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => dispatch(setTargettedCurr("Bangladesh"))} //Dispatch action
+
+      >
+        <Text style={{ fontSize: 20 }}>Generate setTargettedCurr</Text>
+      </TouchableOpacity>
+
           {/* <Text mt={2}></Text> */}
 
           <View style={{ margin: 10 }}></View>
 
           <View style={styles.converted}>
             <ScrollView style={{
-              height:300,
+              height: 300,
               flex: 1,
             }}>
               {/* All Favorites Currency showlist */}

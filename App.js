@@ -5,13 +5,18 @@ import { NavigationContainer } from '@react-navigation/native';
 
 import MyStack from "./Screens/Home";
 
+import { Provider } from "react-redux";
+import { store } from "./store/store";
+
 export default function App() {
 
   return (
-    <NativeBaseProvider>
-      <NavigationContainer>
+    <Provider store={store}>
+      <NativeBaseProvider>
+        <NavigationContainer>
           <MyStack />
-      </NavigationContainer>
-    </NativeBaseProvider>
+        </NavigationContainer>
+      </NativeBaseProvider>
+    </Provider>
   );
 }
