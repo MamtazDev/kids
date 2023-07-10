@@ -585,14 +585,7 @@ const styles = StyleSheet.create({
     color: "#222222",
     marginLeft: 20,
   },
-  buttongrad: {
-    flex: 1,
-    borderColor: "#FFFFFF",
-    borderWidth: 1,
-    padding: 10,
-    borderRadius: 30,
-    background: "linear-gradient(#ffffff, #7C)",
-  },
+ 
   button: {
     padding: 5,
 

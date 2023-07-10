@@ -1,4 +1,4 @@
-import { StyleSheet, TouchableOpacity, View } from "react-native";
+import { ScrollView, StyleSheet, TouchableOpacity, View } from "react-native";
 import { Box, Center, Text } from "native-base";
 import React, { useState } from "react";
 import AppScreen from "../../Utils/AppScreen";
@@ -13,7 +13,7 @@ const Preference = ({ navigation }) => {
   const [isEnabled, setIsEnabled] = useState(false);
   const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
   return (
-    <View>
+    <ScrollView>
       {/* <RouteHeader title="Preference" /> */}
       <LinearGradient
         // Button Linear Gradient
@@ -224,7 +224,7 @@ const Preference = ({ navigation }) => {
           value={isEnabled}
         />
       </HStack> */}
-    </View>
+    </ScrollView>
   );
 };
 
