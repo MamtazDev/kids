@@ -48,8 +48,13 @@ function AllCurrency({ navigation }) {
   console.log("targettedCur", targettedCur)
 
   return (
+<<<<<<< HEAD
     <SafeAreaView style={styles.container}>
 
+=======
+    <ScrollView style={{marginBottom:100,}}>
+      
+>>>>>>> 78ecc8af9b2a7ea595278977bb0475aa0f4868e0
       {/* //Dispatch action */}
 
       <LinearGradient colors={primaryGrad}>
@@ -81,10 +86,7 @@ function AllCurrency({ navigation }) {
           <View style={{ margin: 10 }}></View>
 
           <View style={styles.converted}>
-            <ScrollView style={{
-              height: 300,
-              flex: 1,
-            }}>
+            <ScrollView >
               {/* All Favorites Currency showlist */}
               {AllCurrency.length > 0 &&
                 AllCurrency.map((item, index) => (
@@ -121,7 +123,7 @@ function AllCurrency({ navigation }) {
           </View>
         </View>
       </LinearGradient>
-    </SafeAreaView>
+    </ScrollView>
   );
 }
 
