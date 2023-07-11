@@ -41,7 +41,7 @@ function AllCurrency({ navigation }) {
   };
 
 
-  const {base, targettedCur} = useSelector((state) => state.color); //reading the state 
+  const { base, targettedCur } = useSelector((state) => state.color); //reading the state 
   const dispatch = useDispatch();
 
   console.log("color", base)
@@ -49,7 +49,7 @@ function AllCurrency({ navigation }) {
 
   return (
     <SafeAreaView style={styles.container}>
-      
+
       {/* //Dispatch action */}
 
       <LinearGradient colors={primaryGrad}>
@@ -64,18 +64,17 @@ function AllCurrency({ navigation }) {
           </Box>
 
           {/* //Dispatch action */}
-      <TouchableOpacity
-        onPress={() => dispatch(setBaseCurr("Bangladesh"))} //Dispatch action
+          <TouchableOpacity
+            onPress={() => dispatch(setBaseCurr("USD"))} //Dispatch action
+          >
+            <Text style={{ fontSize: 20 }}>Generate Random Color</Text>
+          </TouchableOpacity>
 
-      >
-        <Text style={{ fontSize: 20 }}>Generate Random Color</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        onPress={() => dispatch(setTargettedCurr("Bangladesh"))} //Dispatch action
-
-      >
-        <Text style={{ fontSize: 20 }}>Generate setTargettedCurr</Text>
-      </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => dispatch(setTargettedCurr("INR"))} //Dispatch action
+          >
+            <Text style={{ fontSize: 20 }}>Generate setTargettedCurr</Text>
+          </TouchableOpacity>
 
           {/* <Text mt={2}></Text> */}
 

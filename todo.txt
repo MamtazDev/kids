@@ -1,0 +1,25 @@
+1. Dashboard -> weekly, slider, 
+2. Analytic
+
+
+
+
+
+
+
+currency 
+
+1. set state for base and target
+2. call api with redux data 
+3. currency convertion
+
+
+
+auth 
+
+signin api 
+verify 
+forgot
+signup 
+profile 
+

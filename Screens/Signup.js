@@ -17,7 +17,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 // import LinearGradient from 'expo-linear-gradient'; // import LinearGradient
 
 const Signup = ({ navigation }) => {
-  const [email, setEmail] = React.useState("");
+  const [email, setEmail] = React.useState('nahid.muradabir@gmail.com');
   const [password, setPassword] = React.useState("");
   const [user, setUser] = React.useState("");
 
@@ -44,7 +44,7 @@ const Signup = ({ navigation }) => {
         const data = await response.json();
         // Do something with the response data
         console.log(data.message);
-        data.message && navigation.navigate("VerifyEmail", { email: 'nahid.muradabir@gmail.com' });
+        data.message && navigation.navigate("VerifyEmail", { email: email });
       } else {
         // Sign-in failed
         const errorData = await response.json();

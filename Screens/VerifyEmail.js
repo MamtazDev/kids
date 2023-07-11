@@ -23,9 +23,40 @@ import {
 
 
     const verifyHandler = async() => {
-        console.log("Login key", loginKey)
-        AsyncStorage.setItem('user_details', JSON.stringify(loginKey));
-        setTimeout(() => {navigation.navigate("Signup")}, 2000)   
+        try {
+          const response = await fetch("http://api.qwixk.com/coin-alter/verify-email", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              email: "dihanopedia@gmail.com",
+              verification_token: "2592023a-ea62-40c7-9044-3cfdbd413f99"
+            }),
+          });
+    
+          if (response.ok) {
+            // Sign-in successful
+            console.log("Login key", loginKey)
+            AsyncStorage.setItem('user_details', JSON.stringify(loginKey));
+            setTimeout(() => {navigation.navigate("Signup")}, 2000)   
+
+          } else {
+            // Sign-in failed
+            const errorData = await response.json();
+            // Handle the error
+            console.log(errorData);
+          }
+        } catch (error) {
+          // Handle network or other errors
+          console.error(error);
+        }
+    
+        // navigation.navigate("VerifyEmail", { email: 'nahid.muradabir@gmail.com' });
+      
+
+
+      
     }
 
     return (
@@ -120,7 +151,7 @@ import {
                       fontWeight: "bold",
                     }}
                   >
-                    Set New Password
+                    Verify Your Email
                   </Text>
                 </Button>
               </TouchableOpacity>
