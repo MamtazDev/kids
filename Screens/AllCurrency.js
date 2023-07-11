@@ -48,13 +48,8 @@ function AllCurrency({ navigation }) {
   console.log("targettedCur", targettedCur)
 
   return (
-<<<<<<< HEAD
-    <SafeAreaView style={styles.container}>
-
-=======
     <ScrollView style={{marginBottom:100,}}>
       
->>>>>>> 78ecc8af9b2a7ea595278977bb0475aa0f4868e0
       {/* //Dispatch action */}
 
       <LinearGradient colors={primaryGrad}>
