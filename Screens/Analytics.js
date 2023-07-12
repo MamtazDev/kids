@@ -34,7 +34,7 @@ export default function Analytics() {
   const [period, setPeriod] = useState("");
   const [period1, setPeriod1] = useState([]);
 
-  const [day, setDay] = useState("Day");
+  const [day, setDay] = useState("weekly");
   const [date1, setDate1] = useState("7/15/2023");
   const [date, setDate] = useState(new Date(1598051730000));
   const [show, setShow] = useState(false);
@@ -46,6 +46,11 @@ export default function Analytics() {
   const [openCurrency1, setOpenCurrency1] = useState(false);
   const [openCurrency2, setOpenCurrency2] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+
+
+  const [startDate, setStartDate] = useState("2022-01-01");
+  const [endDate, setEndDate] = useState("2022-02-08");
+
   const [showCurrencyResult, setShowCurrencyResult] = useState(false);
 
   const handleCurrency = (data) => {
@@ -85,12 +90,100 @@ export default function Analytics() {
     return inrOpenValues;
   }
 
+ 
+
+
+  const weeklyDate = () => {
+    const today = new Date();
+
+    // Formatting today's date
+    const todayFormatted = formatDate(today);
+    setStartDate(todayFormatted);
+
+    // Calculating the date one week ago
+    const oneWeekAgo = new Date(today.getTime() - 7 * 24 * 60 * 60 * 1000);
+
+    // Formatting one week ago date
+    const oneWeekAgoFormatted = formatDate(oneWeekAgo);
+    setEndDate(oneWeekAgoFormatted);
+
+    function formatDate(date) {
+      const year = date.getFullYear();
+      const month = String(date.getMonth() + 1).padStart(2, '0');
+      const day = String(date.getDate()).padStart(2, '0');
+
+      return `${year}-${month}-${day}`;
+    }
+  }
+  // const monthlyDateHandler = () => {
+  //   const today = new Date();
+
+  //   // Formatting today's date
+  //   const todayFormatted = formatDate(today);
+  //   startDate = todayFormatted;
+
+  //   // Calculating the date one week ago
+  //   const oneWeekAgo = new Date(today.getTime() - 30 * 24 * 60 * 60 * 1000);
+
+  //   // Formatting one week ago date
+  //   const oneWeekAgoFormatted = formatDate(oneWeekAgo);
+  //   endDate  =  oneWeekAgoFormatted;
+
+  //   function formatDate(date) {
+  //     const year = date.getFullYear();
+  //     const month = String(date.getMonth() + 1).padStart(2, '0');
+  //     const day = String(date.getDate()).padStart(2, '0');
+
+  //     return `${year}-${month}-${day}`;
+  //   }
+  // }
+
+  function formatDate(date) {
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
+  
+        return `${year}-${month}-${day}`;
+      }
 
   const refetchData = async () => {
+
+    
+
+    const today = new Date();
+
+    // Formatting today's date
+    const todayFormatted = formatDate(today);
+    // startDate = todayFormatted;
+
+    // Calculating the date one week ago
+    const oneWeekAgo = new Date(today.getTime() - 30 * 24 * 60 * 60 * 1000);
+
+    // Formatting one week ago date
+    const oneWeekAgoFormatted = formatDate(oneWeekAgo);
+    // endDate  =  oneWeekAgoFormatted;
+
+    function formatDate(date) {
+      const year = date.getFullYear();
+      const month = String(date.getMonth() + 1).padStart(2, '0');
+      const day = String(date.getDate()).padStart(2, '0');
+
+      return `${year}-${month}-${day}`;
+    }
+
+
+
+
     let user_token = await AsyncStorage.getItem("token");
     user_token = JSON.parse(user_token);
 
     console.log("user_token: ", typeof user_token, user_token);
+    console.log("user_todayFormatted: ", todayFormatted);
+
+    // day === "weekly" ?  weeklyDate() : monthlyDateHandler()
+
+    setTimeout(() => {
+      
 
     fetch("http://api.qwixk.com/coin-alter/historical", {
       method: "POST",
@@ -103,8 +196,8 @@ export default function Analytics() {
       body: JSON.stringify({
         base_currency: "BDT",
         target_currencies: ["INR"],
-        start: "2022-01-01",
-        end: "2022-02-27",
+        start: "2023-07-1",
+        end: "2023-07-10",
       }),
     })
       .then((response) => response.json())
@@ -121,6 +214,7 @@ export default function Analytics() {
       .catch((error) => {
         console.error(error);
       });
+    }, 2000)
 
     // navigation.navigate("Home");
   };
@@ -149,7 +243,7 @@ export default function Analytics() {
         {/* <RouteHeader title="" /> */}
         <Center>
           <Text mb={5} style={styles.chartTitle}>
-            Analytics
+            Analytics {day}
           </Text>
         </Center>
 
@@ -164,15 +258,18 @@ export default function Analytics() {
         >
           <ExpoLinearGradient
             colors={
-              day === "Day" ? ["#6456FF", "#2E20CA"] : ["#ffffff", "#ffffff"]
+              day === "weekly" ? ["#6456FF", "#2E20CA"] : ["#ffffff", "#ffffff"]
             }
             style={{ borderRadius: 30 }}
           >
             <Button
               onPress={() => {
+                weeklyDate()
+
+
                 refetchData();
                 console.log("DIhan consoled the log!");
-                setDay("Day");
+                setDay("weekly");
               }}
               backgroundColor={"transparent"}
               borderWidth={2}
@@ -180,18 +277,25 @@ export default function Analytics() {
               borderRadius={30}
               px="10%"
             >
-              <Text color={day === "Day" ? "white" : "black"}>7 Days</Text>
+              <Text color={day === "weekly" ? "white" : "black"}>7 Days</Text>
             </Button>
           </ExpoLinearGradient>
 
           <ExpoLinearGradient
             colors={
-              day === "7 Days" ? ["#6456FF", "#2E20CA"] : ["#ffffff", "#ffffff"]
+              day === "monthly" ? ["#6456FF", "#2E20CA"] : ["#ffffff", "#ffffff"]
             }
             style={{ borderRadius: 30 }}
           >
             <Button
-              onPress={() => setDay("7 Days")}
+             
+            onPress={() => {
+              weeklyDate()
+
+              refetchData("2022-02-01", "2022-03-08");
+              console.log("DIhan consoled the log!");
+              setDay("monthly")
+            }}
               backgroundColor={"transparent"}
               borderWidth={2}
               borderColor={"white"}
@@ -199,20 +303,20 @@ export default function Analytics() {
               // px={7}
               px="8%"
             >
-              <Text color={day === "7 Days" ? "white" : "black"}>30 Days</Text>
+              <Text color={day === "monthly" ? "white" : "black"}>30 Days</Text>
             </Button>
           </ExpoLinearGradient>
 
           <ExpoLinearGradient
             colors={
-              day === "30 Days"
+              day === "yearly"
                 ? ["#6456FF", "#2E20CA"]
                 : ["#ffffff", "#ffffff"]
             }
             style={{ borderRadius: 30 }}
           >
             <Button
-              onPress={() => setDay("30 Days")}
+              onPress={() => setDay("yearly")}
               backgroundColor={"transparent"}
               borderWidth={2}
               borderColor={"white"}
@@ -220,7 +324,7 @@ export default function Analytics() {
               // px={8}
               px= "6%"
             >
-              <Text color={day === "30 Days" ? "white" : "black"}>
+              <Text color={day === "yearly" ? "white" : "black"}>
                 365 Days
               </Text>
             </Button>
@@ -262,7 +366,7 @@ export default function Analytics() {
 
         <DateRange/>
         
-        {show && (
+        {/* {show && (
           <DateTimePicker
             testID="dateTimePicker"
             value={date}
@@ -270,7 +374,7 @@ export default function Analytics() {
             is24Hour={true}
             onChange={onChange}
           />
-        )}
+        )} */}
 
 
         <HStack alignItems={"center"} mx={6} my={10}>

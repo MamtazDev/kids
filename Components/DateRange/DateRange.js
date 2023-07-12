@@ -7,13 +7,7 @@ import {
     Button,
     Icon,
     Text,
-    Box,
-    Image,
     Modal,
-    Pressable,
-    Spinner,
-    Heading,
-    Input, VStack, FormControl, Center, NativeBaseProvider 
   } from "native-base";
 
 import moment from "moment";
@@ -33,6 +27,13 @@ const DateRange = () => {
     const [modalVisible, setModalVisible] = React.useState(false);
 
     
+    const options = {
+      day: "2-digit",
+      weekday: "short",
+      month: "short",
+      year: "numeric"
+    };
+
   return (
     <>
         <View mt={7} alignItems="center">
@@ -65,18 +66,17 @@ const DateRange = () => {
                 />
               }
             >
-              <Text color="#6456FF">{date.toDateString()}</Text>
+              <Text color="#6456FF"> {new Date(selectedRange.firstDate).toDateString("en-US", options)}  - {new Date(selectedRange.secondDate).toDateString("en-US", options)}  </Text>
             </Button>
           </ExpoLinearGradient>
         </View>
-
         <Modal isOpen={modalVisible} onClose={() => setModalVisible(false)} avoidKeyboard justifyContent="center" bottom="4" size="lg">
         <Modal.Content>
           <Modal.CloseButton />
-          <Modal.Header>Forgot Password?</Modal.Header>
-          
+          <Modal.Header>Select Date Range</Modal.Header>
+          <Modal.Body>
           <View>
-        <DateRangePicker
+            <DateRangePicker
           onSelectDateRange={(range) => {
             setRange(range);
           }}
@@ -87,25 +87,27 @@ const DateRange = () => {
           selectedDateContainerStyle={styles.selectedDateContainerStyle}
           selectedDateStyle={styles.selectedDateStyle}
         />
-        <View style={styles.container}>
-          <Text>first date: {selectedRange.firstDate}</Text>
-          <Text>second date: {selectedRange.secondDate}</Text>
         </View>
-    </View>
-
+          </Modal.Body>
+          <Modal.Footer>
+            <Button.Group space={2}>
+              <Button variant="ghost" colorScheme="blueGray" onPress={() => {
+              setModalVisible(false);
+            }}>
+                Cancel
+              </Button>
+              <Button onPress={() => {
+              setModalVisible(false);
+            }}>
+                Save
+              </Button>
+            </Button.Group>
+          </Modal.Footer>
         </Modal.Content>
       </Modal>
-      <VStack space={8} alignItems="center" style={{ display:
-        'none' }} >
-        <Button w="104" onPress={() => {
-        setModalVisible(!modalVisible);
-      }}>
-          Open Modal
-        </Button>
-        <Text textAlign="center">
-          Open modal and focus on the input element to see the effect.
-        </Text>
-      </VStack>
+
+       
+     
     </>
   )
 }

@@ -63,7 +63,9 @@ const Summery = () => {
     // navigation.navigate("Home");
   };
   
-  
+  useEffect(() => {
+    WeeklyTophDataFetch()
+  },[])
 
   return (
     <View 
