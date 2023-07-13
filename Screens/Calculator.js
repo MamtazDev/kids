@@ -15,6 +15,7 @@ import {
 
 
 const window = Dimensions.get("window").width;
+const windowheight = Dimensions.get("window").height;
 const Calculator = () => {
   const [result, setResult] = useState("");
   const [expression, setExpression] = useState("");
@@ -113,7 +114,7 @@ const Calculator = () => {
 
       <View
         width={"full"}
-        height={560}
+        height={windowheight/1.3}
         roundedTop={10}
         backgroundColor={"blue.100"}
         paddingX={5}

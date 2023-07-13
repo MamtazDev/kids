@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { StyleSheet, TextInput } from "react-native";
 import { Avatar, Button, HStack, Text, VStack, View } from "native-base";
 
@@ -17,11 +17,16 @@ const ConvertCurrency = ({ navigation }) => {
   const [targetedValue, setTargetedValue] = useState(null);
   const [baseValues, setBaseValues] = useState([]);
 
-  const convertHandler = () => {};
+  const [targeetedResponse, setTargeetedResponse] = useState([]);
+  const [inputedValue, setInputedValue] = useState(0);
+
+
+  const convertHandler = () => { };
 
   const targetredInputHandler = (text) => {
     console.log("inputVal", text);
     setTargetedValue(text);
+    setInputedValue(text)
   };
   const baseInputHandler = (text) => {
     console.log("inputVal new", text);
@@ -46,12 +51,14 @@ const ConvertCurrency = ({ navigation }) => {
       },
       body: JSON.stringify({
         base_currency: "USD",
-        target_currencies: ["EUR", "GBP"],
+        target_currencies:  ["EUR", "GBP"],
       }),
     })
       .then((response) => response.json())
       .then((json) => {
         console.log("Profile ", json);
+        setTargeetedResponse(Object.entries(json.target_currencies))
+
         console.log("Profile target_currencies", json.target_currencies);
       })
       .catch((error) => {
@@ -62,6 +69,14 @@ const ConvertCurrency = ({ navigation }) => {
 
     // navigation.navigate("Home");
   };
+  console.log("targeetedResponse", targeetedResponse.length)
+
+
+
+
+  useEffect(() => {
+    apicallHandler()
+  }, [])
 
   return (
     <View>
@@ -79,9 +94,13 @@ const ConvertCurrency = ({ navigation }) => {
           <Box padding="20px">
             <RouteHeader title="Convert Currency" />
           </Box>
+
+
           {/* <Text bold mb={5} mt={2} fontSize="xl" textAlign="center">
             Convert Currency
           </Text> */}
+
+
 
           <HStack mt={15} mx={8} justifyContent="space-between">
             <VStack>
@@ -107,7 +126,7 @@ const ConvertCurrency = ({ navigation }) => {
                   }}
                 ></Avatar>
                 <Text bold fontSize="md" textAlign="center">
-                  BDT
+                USD
                 </Text>
                 <Box ml={2} alignItems="flex-start">
                   <Menu
@@ -189,179 +208,106 @@ const ConvertCurrency = ({ navigation }) => {
         </View>
 
         <View style={styles.converted}>
-          <HStack
-            mt={4}
-            justifyContent="space-between"
-            backgroundColor="#ffffff"
-            paddingX={3}
-            paddingY={2}
-            borderRadius={10}
-          >
-            <HStack alignItems="center">
-              <Avatar
-                size="md"
-                mr={2}
-                bg="green.500"
-                source={{
-                  uri: "https://images.unsplash.com/photo-1467912407355-245f30185020?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-                }}
-              ></Avatar>
-              <Text bold fontSize="md" textAlign="center">
-                USD
-              </Text>
-              <Box ml={2} alignItems="flex-start">
-                  <Menu
-                    shadow={2}
-                    w="90"
-                    trigger={(triggerProps) => {
-                      return (
-                        <Pressable
-                          accessibilityLabel="More options menu"
-                          {...triggerProps}
-                        >
-                          <FontAwesome name="caret-down" size={20} color="black" />
-                        </Pressable>
-                      );
+
+          {
+            targeetedResponse.map(([currency, value], index) => (
+              <HStack
+                mt={4}
+                justifyContent="space-between"
+                backgroundColor="#ffffff"
+                paddingX={3}
+                paddingY={2}
+                borderRadius={10}
+              >
+                <HStack alignItems="center">
+                  <Avatar
+                    size="md"
+                    mr={2}
+                    bg="green.500"
+                    source={{
+                      uri: "https://images.unsplash.com/photo-1467912407355-245f30185020?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+                    }}
+                  ></Avatar>
+                  <Text bold fontSize="md" textAlign="center">
+                    {currency}
+                  </Text>
+
+
+
+
+                  <Box ml={2} alignItems="flex-start">
+                    <Menu
+                      shadow={2}
+                      w="90"
+                      trigger={(triggerProps) => {
+                        return (
+                          <Pressable
+                            accessibilityLabel="More options menu"
+                            {...triggerProps}
+                          >
+                            <FontAwesome name="caret-down" size={20} color="black" />
+                          </Pressable>
+                        );
+                      }}
+                    >
+                      <Menu.Item>USD</Menu.Item>
+                      <Menu.Item>EUR</Menu.Item>
+                      <Menu.Item>JPY</Menu.Item>
+                      <Menu.Item>GBP</Menu.Item>
+                      <Menu.Item>CAD</Menu.Item>
+                      <Menu.Item>SEK</Menu.Item>
+                      <Menu.Item>MXN</Menu.Item>
+                      <Menu.Item>NOK</Menu.Item>
+                    </Menu>
+                  </Box>
+                </HStack>
+                <View
+                  style={{
+                    width: "50%",
+                  }}
+                >
+                  <Text
+                    style={{
+                      textAlign: "left",
+                      fontStyle: "normal",
+                      fontWeight: 400,
+                      fontSize: 14,
+                      marginBottom: 2,
+
+                      color: "#000000",
                     }}
                   >
-                    <Menu.Item>USD</Menu.Item>
-                    <Menu.Item>EUR</Menu.Item>
-                    <Menu.Item>JPY</Menu.Item>
-                    <Menu.Item>GBP</Menu.Item>
-                    <Menu.Item>CAD</Menu.Item>
-                    <Menu.Item>SEK</Menu.Item>
-                    <Menu.Item>MXN</Menu.Item>
-                    <Menu.Item>NOK</Menu.Item>
-                  </Menu>
-                </Box>
-            </HStack>
-            <View
-              style={{
-                width: "50%",
-              }}
-            >
-              <Text
-                style={{
-                  textAlign: "left",
-                  fontStyle: "normal",
-                  fontWeight: 400,
-                  fontSize: 14,
-                  marginBottom: 2,
-
-                  color: "#000000",
-                }}
-              >
-                Enter Amount
-              </Text>
-              <View
-                style={{
-                  alignItems: "flex-end",
-                }}
-              >
-                {/* <Input
+                    Amount
+                  </Text>
+                  <View
+                    style={{
+                      alignItems: "flex-end",
+                    }}
+                  >
+                    {/* <Input
                   placeholder="Amount"
                   w="100%"
                   style={{ borderRadius: 20 }}
                   variant="filled"
                   backgroundColor="#F1F1F1"
                 /> */}
-                <TextInput
+                    {/* <TextInput
                   style={styles.textInputStyle1}
                   // placeholder="Enter Numeric Values Only"
                   placeholderTextColor="#60605e"
                   numeric
                   keyboardType={"numeric"}
                   onChangeText={(text) => baseInputHandler(text)}
-                />
-              </View>
-            </View>
-          </HStack>
-
-          <HStack
-            mt={4}
-            justifyContent="space-between"
-            backgroundColor="#ffffff"
-            padding={3}
-            borderRadius={10}
-          >
-            <HStack alignItems="center">
-              <Avatar
-                size="md"
-                mr={2}
-                bg="green.500"
-                source={{
-                  uri: "https://plus.unsplash.com/premium_photo-1675875487955-0947bcad1597?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=725&q=80",
-                }}
-              ></Avatar>
-              <Text bold fontSize="md" textAlign="center">
-                Riyal
-              </Text>
-              <Box ml={2} alignItems="flex-start">
-                  <Menu
-                    shadow={2}
-                    w="90"
-                    trigger={(triggerProps) => {
-                      return (
-                        <Pressable
-                          accessibilityLabel="More options menu"
-                          {...triggerProps}
-                        >
-                          <FontAwesome name="caret-down" size={20} color="black" />
-                        </Pressable>
-                      );
-                    }}
-                  >
-                    <Menu.Item>USD</Menu.Item>
-                    <Menu.Item>EUR</Menu.Item>
-                    <Menu.Item>JPY</Menu.Item>
-                    <Menu.Item>GBP</Menu.Item>
-                    <Menu.Item>CAD</Menu.Item>
-                    <Menu.Item>SEK</Menu.Item>
-                    <Menu.Item>MXN</Menu.Item>
-                    <Menu.Item>NOK</Menu.Item>
-                  </Menu>
-                </Box>
-            </HStack>
-            <View
-              style={{
-                width: "50%",
-              }}
-            >
-              <Text
-                style={{
-                  textAlign: "left",
-                  fontStyle: "normal",
-                  fontWeight: 400,
-                  fontSize: 14,
-                  marginBottom: 2,
-
-                  color: "#000000",
-                }}
-              >
-                Enter Amount
-              </Text>
-              <View
-                style={{
-                  alignItems: "flex-end",
-                }}
-              >
-                {/* <Input
-                  placeholder="Amount"
-                  w="100%"
-                  style={{ borderRadius: 20 }}
-                  variant="filled"
-                  backgroundColor="#F1F1F1"
                 /> */}
-                <TextInput
-                  style={styles.textInputStyle1}
-                  placeholder=""
-                  placeholderTextColor="#60605e"
-                  numeric
-                  keyboardType={"numeric"}
-                />
-              </View>
-            </View>
-          </HStack>
+                    <Text style={styles.textInputStyle1}>{value * inputedValue}</Text>
+                  </View>
+                </View>
+              </HStack>
+            ))
+          }
+
+
+
 
           <Box alignItems="center">
             <Box width={180} justifyContent="center">
@@ -378,7 +324,7 @@ const ConvertCurrency = ({ navigation }) => {
                   }}
                 >
                   <AntDesign name="pluscircleo" size={18} color="white" />
-                  <Text style={{fontSize:10  , color:'transparent'}}>d</Text> Add More
+                  <Text style={{ fontSize: 10, color: 'transparent' }}>d</Text> Add More
                 </Text>
               </Button>
             </Box>
