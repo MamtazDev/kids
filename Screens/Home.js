@@ -25,6 +25,7 @@ import Calculator from "./Calculator";
 import AllCurrency from "./AllCurrency";
 import AddCurrency from "./AddCurrency";
 import VerifyEmail from "./VerifyEmail";
+import MainHome from "./MainHome/MainHome";
 
 const Tab = createBottomTabNavigator();
 
@@ -57,7 +58,7 @@ const CustomeTabBarButton = ({ children, onPress }) => (
 function Home() {
   return (
     <Tab.Navigator
-      initialRouteName="Currency_list"
+      initialRouteName="Home"
       screenOptions={{
         headerShown: false,
         tabBarShowLabel: false,
@@ -107,6 +108,38 @@ function Home() {
           ),
         }}
       />
+      {/* <Tab.Screen
+        name="Home"
+        // component={Signup}
+        // component={VerifyEmail}
+        component={MainHome}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <View
+              style={{
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Image
+                source={require("../assets/icons/home.png")}
+                resizeMode="contain"
+                style={{
+                  width: 20,
+                  height: 20,
+                  tintColor: focused ? "#2E20CA" : "#748c94",
+                }}
+                alt="image"
+              />
+              <Text
+                style={{ color: focused ? "#2E20CA" : "#748c94", fontSize: 8 }}
+              >
+                Home
+              </Text>
+            </View>
+          ),
+        }}
+      /> */}
       <Tab.Screen
         name="Analytics"
         component={Analytics}
@@ -260,7 +293,16 @@ export default function MyStack() {
         headerShown: false,
       }}
     >
-      { isLogedin ? <Stack.Screen
+
+      <Stack.Screen
+        name="Convert_Currency"
+        component={Home}
+        options={{
+          headerTintColor: "white",
+          headerStyle: { backgroundColor: "#4E43FF" },
+        }}
+      />
+      {/* { isLogedin ? <Stack.Screen
         name="Convert_Currency"
         component={Home}
         options={{
@@ -271,7 +313,7 @@ export default function MyStack() {
       name="initialLogin"
       component={Signin}
       options={{ title: "Signin", headerStyleInterpolator: forFade }}
-    /> }
+    /> } */}
       <Stack.Screen
         name="Currency_list"
         component={AllCurrency}

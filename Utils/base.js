@@ -19,9 +19,6 @@ const createTable = () => {
 
 
 
-
-
-
 const insertItem = (item, callback) => {
   const { name, id, datas, createdAt } = item;
   const objectData = JSON.stringify(item);

@@ -19,14 +19,17 @@ const DashboardHeader = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <View>
+    <>
+      {/* <Text>Dihan</Text> */}
+
       <HStack
         space={3}
         mt={5}
         justifyContent="space-between"
         alignItems={"center"}
       >
-        <Flex direction="row" alignItems={"center"}>
+        <Text>Dihan</Text>
+        {/* <Flex direction="row" alignItems={"center"}>
           <Avatar
             bg="green.500"
             source={require("../../assets/icons/man.png")}
@@ -38,7 +41,7 @@ const DashboardHeader = () => {
         </Flex>
 
         <IconButton
-          onPress={() => setIsModalOpen(true)}
+          // onPress={() => setIsModalOpen(true)}
           backgroundColor={"#232631CC"}
           style={{ borderRadius: 10 }}
           variant="solid"
@@ -46,10 +49,10 @@ const DashboardHeader = () => {
             as: Ionicons,
             name: "notifications-outline",
           }}
-        />
-      </HStack>
+        /> */}
+      </HStack> 
 
-      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} px={6}>
+       {/* <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} px={6}>
         <Modal.Content width={"full"} maxWidth="400px" height={"full"}>
           <Modal.Header>Notification</Modal.Header>
           <ScrollView
@@ -57,262 +60,7 @@ const DashboardHeader = () => {
             showsHorizontalScrollIndicator={false}
           >
             <Modal.Body>
-              <HStack
-                space={3}
-                mt={5}
-                justifyContent="space-between"
-                backgroundColor="white"
-                padding={3}
-                borderRadius={10}
-              >
-                <View
-                  display={"flex"}
-                  flexDirection={"row"}
-                  justifyItems="center"
-                >
-                  <Image
-                    borderRadius={100}
-                    source={require("../../assets/icons/notification.png")}
-                    style={{
-                      width: 46,
-                      height: 46,
-                      borderRadius: 100,
-                    }}
-                    alt="logo"
-                  />
-                  <View marginLeft={3}>
-                    <Text bold fontSize="xl">
-                      USD is increase
-                    </Text>
-                    <Text fontSize="sm">Date: 12-02-20223</Text>
-                  </View>
-                </View>
-              </HStack>
-
-              <HStack
-                space={3}
-                mt={5}
-                justifyContent="space-between"
-                backgroundColor="white"
-                padding={3}
-                borderRadius={10}
-              >
-                <View
-                  display={"flex"}
-                  flexDirection={"row"}
-                  justifyItems="center"
-                >
-                  <Image
-                    borderRadius={100}
-                    source={require("../../assets/icons/notification.png")}
-                    style={{
-                      width: 46,
-                      height: 46,
-                      borderRadius: 100,
-                    }}
-                    alt="logo"
-                  />
-                  <View marginLeft={3}>
-                    <Text bold fontSize="xl">
-                      USD is increase
-                    </Text>
-                    <Text fontSize="sm">Date: 12-02-20223</Text>
-                  </View>
-                </View>
-              </HStack>
-
-              <HStack
-                space={3}
-                mt={5}
-                justifyContent="space-between"
-                backgroundColor="white"
-                padding={3}
-                borderRadius={10}
-              >
-                <View
-                  display={"flex"}
-                  flexDirection={"row"}
-                  justifyItems="center"
-                >
-                  <Image
-                    borderRadius={100}
-                    source={require("../../assets/icons/notification.png")}
-                    style={{
-                      width: 46,
-                      height: 46,
-                      borderRadius: 100,
-                    }}
-                    alt="logo"
-                  />
-                  <View marginLeft={3}>
-                    <Text bold fontSize="xl">
-                      USD is increase
-                    </Text>
-                    <Text fontSize="sm">Date: 12-02-20223</Text>
-                  </View>
-                </View>
-              </HStack>
-
-              <HStack
-                space={3}
-                mt={5}
-                justifyContent="space-between"
-                backgroundColor="white"
-                padding={3}
-                borderRadius={10}
-              >
-                <View
-                  display={"flex"}
-                  flexDirection={"row"}
-                  justifyItems="center"
-                >
-                  <Image
-                    borderRadius={100}
-                    source={require("../../assets/icons/notification.png")}
-                    style={{
-                      width: 46,
-                      height: 46,
-                      borderRadius: 100,
-                    }}
-                    alt="logo"
-                  />
-                  <View marginLeft={3}>
-                    <Text bold fontSize="xl">
-                      USD is increase
-                    </Text>
-                    <Text fontSize="sm">Date: 12-02-20223</Text>
-                  </View>
-                </View>
-              </HStack>
-              <HStack
-                space={3}
-                mt={5}
-                justifyContent="space-between"
-                backgroundColor="white"
-                padding={3}
-                borderRadius={10}
-              >
-                <View
-                  display={"flex"}
-                  flexDirection={"row"}
-                  justifyItems="center"
-                >
-                  <Image
-                    borderRadius={100}
-                    source={require("../../assets/icons/notification.png")}
-                    style={{
-                      width: 46,
-                      height: 46,
-                      borderRadius: 100,
-                    }}
-                    alt="logo"
-                  />
-                  <View marginLeft={3}>
-                    <Text bold fontSize="xl">
-                      USD is increase
-                    </Text>
-                    <Text fontSize="sm">Date: 12-02-20223</Text>
-                  </View>
-                </View>
-              </HStack>
-
-              <HStack
-                space={3}
-                mt={5}
-                justifyContent="space-between"
-                backgroundColor="white"
-                padding={3}
-                borderRadius={10}
-              >
-                <View
-                  display={"flex"}
-                  flexDirection={"row"}
-                  justifyItems="center"
-                >
-                  <Image
-                    borderRadius={100}
-                    source={require("../../assets/icons/notification.png")}
-                    style={{
-                      width: 46,
-                      height: 46,
-                      borderRadius: 100,
-                    }}
-                    alt="logo"
-                  />
-                  <View marginLeft={3}>
-                    <Text bold fontSize="xl">
-                      USD is increase
-                    </Text>
-                    <Text fontSize="sm">Date: 12-02-20223</Text>
-                  </View>
-                </View>
-              </HStack>
-
-              <HStack
-                space={3}
-                mt={5}
-                justifyContent="space-between"
-                backgroundColor="white"
-                padding={3}
-                borderRadius={10}
-              >
-                <View
-                  display={"flex"}
-                  flexDirection={"row"}
-                  justifyItems="center"
-                >
-                  <Image
-                    borderRadius={100}
-                    source={require("../../assets/icons/notification.png")}
-                    style={{
-                      width: 46,
-                      height: 46,
-                      borderRadius: 100,
-                    }}
-                    alt="logo"
-                  />
-                  <View marginLeft={3}>
-                    <Text bold fontSize="xl">
-                      USD is increase
-                    </Text>
-                    <Text fontSize="sm">Date: 12-02-20223</Text>
-                  </View>
-                </View>
-              </HStack>
-
-              <HStack
-                space={3}
-                mt={5}
-                justifyContent="space-between"
-                backgroundColor="white"
-                padding={3}
-                borderRadius={10}
-              >
-                <View
-                  display={"flex"}
-                  flexDirection={"row"}
-                  justifyItems="center"
-                >
-                  <Image
-                    borderRadius={100}
-                    source={require("../../assets/icons/notification.png")}
-                    style={{
-                      width: 46,
-                      height: 46,
-                      borderRadius: 100,
-                    }}
-                    alt="logo"
-                  />
-                  <View marginLeft={3}>
-                    <Text bold fontSize="xl">
-                      USD is increase
-                    </Text>
-                    <Text fontSize="sm">Date: 12-02-20223</Text>
-                  </View>
-                </View>
-              </HStack>
-
-              <HStack
+            <HStack
                 space={3}
                 mt={5}
                 justifyContent="space-between"
@@ -346,8 +94,8 @@ const DashboardHeader = () => {
             </Modal.Body>
           </ScrollView>
         </Modal.Content>
-      </Modal>
-    </View>
+      </Modal> */}
+    </>
   );
 };
 

@@ -14,10 +14,15 @@ import COLORS from "../Utils/Constant";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { LinearGradient } from "expo-linear-gradient";
 import { primaryGrad } from "../Utils/GradientColor";
+import { useNavigation } from '@react-navigation/native';
 
-const Signin = ({ navigation }) => {
+
+const Signin = ({ }) => {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
+
+
+  const navigation = useNavigation();
 
 
   const submitHandler = async () => {
