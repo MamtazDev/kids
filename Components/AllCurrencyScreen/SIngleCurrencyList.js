@@ -36,7 +36,9 @@ const SIngleCurrencyList = ({ navigation }) => {
             alt="logo"
           /> */}
           <IconButton
-            onPress={() => navigation.navigate("Currency_add")}
+            onPress={() => navigation.navigate("Currency_add", {
+              isBase: false ,
+            })}
             style={{
               backgroundColor: "rgba(242, 244, 255, 1)",
               borderRadius: 50,

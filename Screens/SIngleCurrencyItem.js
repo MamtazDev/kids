@@ -2,24 +2,26 @@ import { StyleSheet } from "react-native";
 import React from "react";
 import { Avatar, CheckIcon, HStack, View, Text, Image } from "native-base";
 import { AntDesign } from "@expo/vector-icons";
+import { useDispatch } from "react-redux";
+import { setBaseCurr, setTargettedCurr } from "../store/colorSlice";
 
 const SIngleCurrencyItem = ({
   navigation,
   item,
   favCurrency,
   setFavCurrency,
+  isBase
 }) => {
   const favHandler = () => {
     setFavCurrency([...favCurrency, item]);
   };
 
+
+  const dispatch = useDispatch();
+  
+
   return (
-    // <HStack space={2} marginX={5} marginY={1} justifyContent="space-between">
-    //     <Text onPress={() =>navigation.navigate('CalculateCurrency')}  color="emerald.500" fontSize="md">
-    //         {item.name}
-    //     </Text>
-    //     <AntDesign onPress={ favHandler} name="pushpin" size={24} style={styles.icon} color="black" />
-    // </HStack>
+  
 
     <HStack
       mt={3}
@@ -30,46 +32,27 @@ const SIngleCurrencyItem = ({
       borderRadius={10}
     >
       <HStack alignItems="center">
-        {/* <Avatar
-          bg="green.500"
-          size="sm"
-          rounded="full"
-          source={{
-            uri: item.image,
-          }}
-        ></Avatar> */}
-        <Image
-            Image
-            borderRadius={100}
-            style={styles.image}
-            resizeMode={"cover"}
-            source={{
-              uri: item.image,
-              width: 60,
-              height: 60,
-              borderRadius: "50%",
+        
+        <Image source={{
+          uri: item.image
+        }} alt="Alternate Text" size="xs" style={{ borderRadius: 20 }} />
 
-              overflow: "hidden",
-              borderWidth: 3,
-              borderColor: "red",
-              padding: 10,
-              
 
-              // blurRadius: 64,
-            }}
-            alt="image"
-        />
+
         <View ml={2} style={styles.header}>
           <Text
             bold
             fontSize="md"
-            onPress={() => navigation.navigate("CalculateCurrency")}
+            onPress={() => {
+              isBase ? dispatch(setBaseCurr(item.currencyName)) : dispatch(setTargettedCurr(item.currencyName));
+              navigation.navigate("Currency_list")
+            }}
           >
-            {" "}
+            
             {item.name}
           </Text>
           <Text ml={1} fontSize="xs">
-            CAD
+            {item.currencyName}
           </Text>
         </View>
       </HStack>
@@ -82,7 +65,6 @@ const SIngleCurrencyItem = ({
         color="black"
       />
 
-      {/* <Ionicons name="notifications" size={24} color="black" /> */}
     </HStack>
   );
 };
@@ -95,7 +77,7 @@ const styles = StyleSheet.create({
   //     fontSize: 16,
   //  transform: [{ rotate: '90deg' }],
   // },
-  
+
 
   icon: {
     color: "#BFB9FF",

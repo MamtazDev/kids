@@ -1,18 +1,24 @@
 import { StyleSheet } from "react-native";
 import React from "react";
-import { Avatar, CheckIcon, HStack, View, Text } from "native-base";
+import { Image, Avatar, CheckIcon, HStack, View, Text } from "native-base";
 import { AntDesign } from "@expo/vector-icons";
+import { useDispatch } from "react-redux";
+import { setBaseCurr, setTargettedCurr } from "../store/colorSlice";
 
 const SIngleCurrencyItemActive = ({
   navigation,
   item,
   favCurrency,
   setFavCurrency,
+  isBase
 }) => {
   const favHandler = () => {
     const items = favCurrency.filter((single) => single.name !== item.name);
     setFavCurrency(items);
   };
+
+
+  const dispatch = useDispatch();
   return (
     <>
       <HStack
@@ -24,25 +30,31 @@ const SIngleCurrencyItemActive = ({
         borderRadius={10}
       >
         <HStack alignItems="center">
-          <Avatar
+          {/* <Avatar
             bg="green.500"
             size="sm"
+            style={{borderRadius:3}}
             source={{
-              uri: item.image,
+              uri: item.image,  
             }}
-          ></Avatar>
+          ></Avatar> */}
+          <Image source={{
+            uri: item.image
+          }} alt="Alternate Text" size="xs" style={{ borderRadius: 20 }} />
 
           <View ml={2} style={styles.header}>
             <Text
               bold
               fontSize="xl"
-              onPress={() => navigation.navigate("CalculateCurrency")}
+              onPress={() => {
+                isBase ? dispatch(setBaseCurr(item.currencyName)) : dispatch(setTargettedCurr(item.currencyName));
+                navigation.navigate("Currency_list")
+              }}
             >
-              {" "}
               {item.name}
             </Text>
             <Text ml={2} fontSize="sm">
-              CAD
+              {item.currencyName}
             </Text>
           </View>
         </HStack>

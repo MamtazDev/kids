@@ -57,7 +57,7 @@ const CustomeTabBarButton = ({ children, onPress }) => (
 function Home() {
   return (
     <Tab.Navigator
-      initialRouteName="Analytics"
+      initialRouteName="Currency_list"
       screenOptions={{
         headerShown: false,
         tabBarShowLabel: false,
@@ -251,20 +251,27 @@ const forFade = ({ current, next }) => {
 const Stack = createStackNavigator();
 
 export default function MyStack() {
+
+  const [isLogedin, setIsLogedin] = React.useState(false)
+
   return (
     <Stack.Navigator
       screenOptions={{
         headerShown: false,
       }}
     >
-      <Stack.Screen
+      { isLogedin ? <Stack.Screen
         name="Convert_Currency"
         component={Home}
         options={{
           headerTintColor: "white",
           headerStyle: { backgroundColor: "#4E43FF" },
         }}
-      />
+      /> : <Stack.Screen
+      name="initialLogin"
+      component={Signin}
+      options={{ title: "Signin", headerStyleInterpolator: forFade }}
+    /> }
       <Stack.Screen
         name="Currency_list"
         component={AllCurrency}

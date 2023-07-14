@@ -12,6 +12,21 @@ import { Menu, HamburgerIcon, Box, Pressable, Center } from "native-base";
 import COLORS from "../Utils/Constant";
 import { useState } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useSelector } from "react-redux";
+
+// import flagsList from "../Utils/flag";
+
+
+const flagsList = {
+
+  "INR": "https://plus.unsplash.com/premium_photo-1674591172888-1184c4170a47?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+  "BDT": "https://plus.unsplash.com/premium_photo-1675865393754-3c72283604ca?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1025&q=80",
+  "YEN": "https://plus.unsplash.com/premium_photo-1675865394925-8ccfb93e2dc8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1025&q=80",
+  "USD": "https://images.unsplash.com/photo-1590638302397-73c58ddba466?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80",
+  "GBP": "https://plus.unsplash.com/premium_photo-1674591172569-834e3c928c3d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+
+}
+
 
 const ConvertCurrency = ({ navigation }) => {
   const [targetedValue, setTargetedValue] = useState(null);
@@ -36,9 +51,23 @@ const ConvertCurrency = ({ navigation }) => {
   console.log("targetedValue", targetedValue);
   console.log("baseInputHandler", baseValues);
 
+
+  
+    
+  const {base, targettedCur} = useSelector((state) => state.color); //reading the state 
+  console.log("base City: ", base)
+  console.log("targettedCur", targettedCur)
+
+
+
+  
   const apicallHandler = async () => {
     let user_token = await AsyncStorage.getItem("token");
     user_token = JSON.parse(user_token);
+
+
+
+
 
     console.log("user_token: ", typeof user_token, user_token);
     await fetch("http://api.qwixk.com/coin-alter/rates", {
@@ -50,8 +79,8 @@ const ConvertCurrency = ({ navigation }) => {
         Authorization: `Bearer ${user_token}`,
       },
       body: JSON.stringify({
-        base_currency: "USD",
-        target_currencies:  ["EUR", "GBP"],
+        base_currency: base,
+        target_currencies:  targettedCur ,
       }),
     })
       .then((response) => response.json())
@@ -71,6 +100,8 @@ const ConvertCurrency = ({ navigation }) => {
   };
   console.log("targeetedResponse", targeetedResponse.length)
 
+
+  
 
 
 
@@ -122,11 +153,11 @@ const ConvertCurrency = ({ navigation }) => {
                   mr={2}
                   bg="green.500"
                   source={{
-                    uri: "https://plus.unsplash.com/premium_photo-1675865393754-3c72283604ca?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1025&q=80",
+                    uri: flagsList[base],
                   }}
                 ></Avatar>
                 <Text bold fontSize="md" textAlign="center">
-                USD
+                {base}
                 </Text>
                 <Box ml={2} alignItems="flex-start">
                   <Menu
@@ -225,7 +256,7 @@ const ConvertCurrency = ({ navigation }) => {
                     mr={2}
                     bg="green.500"
                     source={{
-                      uri: "https://images.unsplash.com/photo-1467912407355-245f30185020?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+                      uri: flagsList[currency],
                     }}
                   ></Avatar>
                   <Text bold fontSize="md" textAlign="center">

@@ -19,7 +19,6 @@ const Signin = ({ navigation }) => {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
 
-  const [username, setUsername] = useState("");
 
   const submitHandler = async () => {
     try {

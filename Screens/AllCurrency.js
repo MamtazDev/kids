@@ -41,15 +41,15 @@ function AllCurrency({ navigation }) {
   };
 
 
-  const {base, targettedCur} = useSelector((state) => state.color); //reading the state 
+  const { base, targettedCur } = useSelector((state) => state.color); //reading the state 
   const dispatch = useDispatch();
 
   console.log("color", base)
   console.log("targettedCur", targettedCur)
 
   return (
-    <ScrollView style={{marginBottom:100,}}>
-      
+    <ScrollView style={{ marginBottom: 100, }}>
+
       {/* //Dispatch action */}
 
       <LinearGradient colors={primaryGrad}>
@@ -64,8 +64,9 @@ function AllCurrency({ navigation }) {
           </Box>
 
           {/* //Dispatch action */}
-      <TouchableOpacity
+          {/* <TouchableOpacity
         onPress={() => dispatch(setBaseCurr("Bangladesh"))} //Dispatch action
+
 
       >
         <Text style={{ fontSize: 20 }}>Generate Random Color</Text>
@@ -75,7 +76,7 @@ function AllCurrency({ navigation }) {
 
       >
         <Text style={{ fontSize: 20 }}>Generate setTargettedCurr</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
 
           {/* <Text mt={2}></Text> */}
 

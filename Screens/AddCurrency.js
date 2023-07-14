@@ -20,10 +20,15 @@ import RouteHeader from "../Utils/RouteHeader";
 import { LinearGradient } from "expo-linear-gradient";
 import SIngleCurrencyList from "../Components/AllCurrencyScreen/SIngleCurrencyList";
 
-function AddCurrency({ navigation }) {
+function AddCurrency({route,  navigation }) {
   const [favCurrency, setFavCurrency] = useState([]);
 
+
+  const { isBase } = route.params
+
   return (
+
+    <ScrollView>
     <SafeAreaView style={styles.container}>
       <LinearGradient
         // Button Linear Gradient
@@ -38,6 +43,8 @@ function AddCurrency({ navigation }) {
           <Box padding="20px">
             <RouteHeader title="Select Currency" />
           </Box>
+
+          {/* {isBase && <Text>Dihan</Text>} */}
 
           <Box alignItems="center">
             {/* <Input
@@ -93,6 +100,7 @@ function AddCurrency({ navigation }) {
                   {favCurrency.map((item, index) => (
                     <SIngleCurrencyItemActive
                       key={index}
+                      isBase={isBase}
                       navigation={navigation}
                       favCurrency={favCurrency}
                       setFavCurrency={setFavCurrency}
@@ -114,6 +122,7 @@ function AddCurrency({ navigation }) {
                     return (
                       <SIngleCurrencyItem
                         key={index}
+                        isBase={isBase}
                         navigation={navigation}
                         favCurrency={favCurrency}
                         setFavCurrency={setFavCurrency}
@@ -132,6 +141,7 @@ function AddCurrency({ navigation }) {
         </View>
       </LinearGradient>
     </SafeAreaView>
+    </ScrollView>
   );
 }
 
@@ -166,40 +176,39 @@ const styles = StyleSheet.create({
 
 const allData = [
   {
-    name: "ABangladesh",
+    name: "Bangladesh",
+    currencyName: "BDT",
     favoirite: "false",
     Credit: "80.4",
-    image: "https://www.worldometers.info//img/flags/small/tn_bg-flag.gif",
+    image: "https://plus.unsplash.com/premium_photo-1675865393754-3c72283604ca?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1025&q=80",
   },
   {
-    name: "Afghanistan",
+    name: "Japan",
+    currencyName: "YEN",
     favoirite: "false",
     Credit: "80.4",
-    image: "https://www.worldometers.info//img/flags/small/tn_af-flag.gif",
+    image: "https://plus.unsplash.com/premium_photo-1675865394925-8ccfb93e2dc8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1025&q=80",
   },
   {
-    name: "Albania",
+    name: "America",
+    currencyName: "USD",
     favoirite: "false",
     Credit: "80.4",
-    image: "https://www.worldometers.info//img/flags/small/tn_al-flag.gif",
+    image: "https://images.unsplash.com/photo-1590638302397-73c58ddba466?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80",
   },
   {
-    name: "Algeria",
+    name: "India",
+    currencyName: "INR",
     favoirite: "false",
     Credit: "80.4",
-    image: "https://www.worldometers.info//img/flags/small/tn_ag-flag.gif",
+    image: "https://plus.unsplash.com/premium_photo-1674591172888-1184c4170a47?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+  },
+  {
+    name: "UK",
+    currencyName: "GBP",
+    favoirite: "false",
+    Credit: "80.4",
+    image: "https://plus.unsplash.com/premium_photo-1674591172569-834e3c928c3d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
   },
 
-  {
-    name: "Belarus",
-    favoirite: "false",
-    Credit: "80.4",
-    image: "https://www.worldometers.info//img/flags/small/tn_bo-flag.gif",
-  },
-  {
-    name: "Argentina Peso",
-    favoirite: "false",
-    Credit: "80.4",
-    image: "https://www.worldometers.info//img/flags/small/tn_af-flag.gif",
-  },
 ];
