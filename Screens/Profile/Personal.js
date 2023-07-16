@@ -36,8 +36,6 @@ const Personal = ({ navigation }) => {
   };
   return (
     <>
-     
-
       <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
         <Modal.Content maxWidth="400px">
           <Modal.CloseButton />
@@ -140,13 +138,13 @@ const Personal = ({ navigation }) => {
       
       <ScrollView showsHorizontalScrollIndicator={false} mt={5}>
         <Box style={{ marginHorizontal: 20 }}>
-          <FormControl backgroundColor={"white"} padding={3} rounded={10}>
-            <FormControl.Label>Name</FormControl.Label>
+          <FormControl backgroundColor={"white"} px={3} py={2} rounded={10}>
+            <FormControl.Label fontSize={12}>Name</FormControl.Label>
             <Input
               variant="unstyled"
               p={0}
               color="black"
-              fontSize={20}
+              fontSize={18}
               // placeholderTextColor="black"
               style={{ fontWeight: "semibold" }}
               placeholder="John"
@@ -158,7 +156,7 @@ const Personal = ({ navigation }) => {
           <FormControl
             marginTop={4}
             backgroundColor={"white"}
-            padding={3}
+            px={3} py={2}
             rounded={10}
           >
             <FormControl.Label>Email</FormControl.Label>
@@ -166,7 +164,8 @@ const Personal = ({ navigation }) => {
               variant="unstyled"
               p={0}
               color="black"
-              fontSize={20}
+              
+              fontSize={18}
               // placeholderTextColor="black"
               style={{ fontWeight: "semibold" }}
               placeholder="name@gmail.com"
@@ -178,7 +177,7 @@ const Personal = ({ navigation }) => {
           <FormControl
             marginTop={4}
             backgroundColor={"white"}
-            padding={3}
+            px={3} py={2}
             rounded={10}
           >
             <FormControl.Label>Password</FormControl.Label>
@@ -186,7 +185,8 @@ const Personal = ({ navigation }) => {
               variant="unstyled"
               p={0}
               color="black"
-              fontSize={20}
+              
+              fontSize={18}
               // placeholderTextColor="black"
               style={{ fontWeight: "semibold" }}
               placeholder="*********"

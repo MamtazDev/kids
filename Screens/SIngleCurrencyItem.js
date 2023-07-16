@@ -24,11 +24,12 @@ const SIngleCurrencyItem = ({
   
 
     <HStack
-      mt={3}
+      mt={4}
       justifyContent="space-between"
       alignItems="center"
       backgroundColor="#ffffff"
-      padding={5}
+      py={3}
+      px={4}
       borderRadius={10}
     >
       <HStack alignItems="center">

@@ -39,7 +39,7 @@ function AddCurrency({route,  navigation }) {
         ]}
       >
         <View style={styles.wrapper}>
-          <Text bold mb={5} fontSize="xl" textAlign="center"></Text>
+          <Text bold mb={1} fontSize="xl" textAlign="center"></Text>
           <Box padding="20px">
             <RouteHeader title="Select Currency" />
           </Box>
@@ -67,15 +67,15 @@ function AddCurrency({route,  navigation }) {
                 base: "90%",
                 md: "25%",
               }}
-              style={{ backgroundColor: "#FFFFFF" }}
+              style={{ backgroundColor: "rgba(255, 255, 255, 0.23)",  }}
               variant="rounded"
-              placeholder="Search..."
+              // placeholder="Search..."
             />
           </Box>
 
           {/* <Text bold mb={5} mt={2} fontSize="xl" textAlign="center"></Text> */}
 
-          <View style={{ margin: 10 }}>
+          <View style={{ margin: 1 }}>
             {/* <SIngleCurrencyList
               navigation={navigation}
               favCurrency={favCurrency}
@@ -113,7 +113,7 @@ function AddCurrency({route,  navigation }) {
             <ScrollView>
               {/* All Currency showlist */}
               <View style={{ padding: 10 }}>
-                <Text bold my={5} fontSize="xl" style={{ margin: 10 }}>
+                <Text bold my={1} fontSize="22px" style={{ margin: 10 }}>
                   All Currencies
                 </Text>
 

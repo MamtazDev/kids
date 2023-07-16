@@ -25,7 +25,7 @@ const Preference = ({ navigation }) => {
           "rgba(137, 129, 254, 0.47)",
           // "#fbfbfb",
           "#f3f3f3",
-          "#f3f3f3"
+          "#F5F5F5"
         ]}
       >
         <TouchableOpacity onPress={() => navigation.navigate("Security")}>
@@ -71,7 +71,7 @@ const Preference = ({ navigation }) => {
             justifyItems={"center"}
             backgroundColor="white"
             paddingX={3}
-            paddingY={6}
+            paddingY={4}
             borderRadius={10}
           >
             <Text style={styles.title}>Configure Notification</Text>
@@ -99,7 +99,7 @@ const Preference = ({ navigation }) => {
             justifyItems={"center"}
             backgroundColor="white"
             paddingX={3}
-            paddingY={3}
+            paddingY={1}
             borderRadius={10}
           >
             <Text marginTop={4} style={styles.title}>
@@ -118,11 +118,12 @@ const Preference = ({ navigation }) => {
           <HStack
             space={3}
             mt={6}
+      
             justifyContent="space-between"
             justifyItems={"center"}
             backgroundColor="white"
             paddingX={3}
-            paddingY={3}
+            paddingY={1}
             borderRadius={10}
           >
             <Text marginTop={4} style={styles.title}>
@@ -146,11 +147,12 @@ const Preference = ({ navigation }) => {
           <HStack
             space={3}
             mt={2}
+            mb={100}
             justifyContent="space-between"
             justifyItems={"center"}
             backgroundColor="white"
             paddingX={3}
-            paddingY={3}
+            paddingY={1}
             borderRadius={10}
           >
             <Text marginTop={4} style={styles.title}>
@@ -271,7 +273,7 @@ const styles = StyleSheet.create({
     height: 50,
   },
   title: {
-    fontSize: 17,
+    fontSize: 15,
     // fontWeight: "bold",
     color: "#222222",
     marginLeft: 5,

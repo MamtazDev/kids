@@ -6,7 +6,6 @@ export const primaryGrad = [
   "#fbfbfb",
   "#fbfbfb",
   "#fbfbfb",
-  "#fbfbfb",
   // "#ffffff",
   // "#ffffff",
   // "#ffffff",

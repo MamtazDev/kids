@@ -64,12 +64,13 @@ const BaseCurrency = ({ navigation }) => {
           <View ml={2} style={styles.header}>
             <Text
               bold
-              fontSize="xl"
+              fontSize="15px"
+              style={{fontFamily: "Outfit"}}
               onPress={() => navigation.navigate("CalculateCurrency")}
             >
               Add Currency
             </Text>
-            <Text fontSize="sm">Tap to add new currency to your list</Text>
+            <Text fontSize="xs">Tap to add new currency to your list</Text>
           </View>
         </HStack>
       </HStack>

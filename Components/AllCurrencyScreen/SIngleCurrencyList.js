@@ -19,7 +19,7 @@ const SIngleCurrencyList = ({ navigation }) => {
   return (
     <>
       <HStack
-        mt={3}
+        mt={5}
         justifyContent="space-between"
         alignItems="center"
         backgroundColor="#ffffff"
@@ -55,12 +55,12 @@ const SIngleCurrencyList = ({ navigation }) => {
           <View ml={2} style={styles.header}>
             <Text
               bold
-              fontSize="xl"
+              fontSize="lg"
               onPress={() => navigation.navigate("CalculateCurrency")}
             >
               Add Currency
             </Text>
-            <Text fontSize="sm">Tap to add new currency to your list</Text>
+            <Text fontSize="xs">Tap to add new currency to your list</Text>
           </View>
         </HStack>
       </HStack>

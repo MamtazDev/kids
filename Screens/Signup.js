@@ -136,13 +136,13 @@ const Signup = ({ navigation }) => {
         </LinearGradient>
 
         <View style={styles.container}>
-          <View>
+          {/* <View>
 
-            {/* <Text> LoginKey: {asyncStorageData}</Text> */}
+            <Text> LoginKey: {asyncStorageData}</Text>
             <Text> Use name: {user}</Text>
             <Text> Use name: {email}</Text>
             <Text> Use name: {password}</Text>
-          </View>
+          </View> */}
           <View style={styles.container_Input}>
             <TextInput
               style={[
@@ -254,6 +254,11 @@ const Signup = ({ navigation }) => {
                 rounded={6}
                 style={{
                   display: "flex",
+                  shadowColor: '#666',
+                    shadowOffset: { width: 0, height: 1 },
+                    shadowOpacity: 0.9,
+                    // shadowRadius: 10,
+                    elevation: 3
                   // justifyContent: "center"
                 }}
               >

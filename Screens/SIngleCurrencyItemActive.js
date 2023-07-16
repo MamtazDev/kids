@@ -26,7 +26,8 @@ const SIngleCurrencyItemActive = ({
         justifyContent="space-between"
         alignItems="center"
         backgroundColor="#ffffff"
-        padding={5}
+        py={2}
+        px={4}
         borderRadius={10}
       >
         <HStack alignItems="center">

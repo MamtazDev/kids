@@ -13,7 +13,7 @@ import {
 } from "native-base";
 import React, { useState } from "react";
 import { SafeAreaView, TouchableOpacity } from "react-native";
-import { StyleSheet, StatusBar, ScrollView } from "react-native";
+import { StyleSheet, StatusBar,Dimensions, ScrollView } from "react-native";
 // import { ScrollView } from "native-base";
 import RouteHeader from "../Utils/RouteHeader";
 
@@ -27,6 +27,8 @@ import BaseCurrency from "../Components/AllCurrencyScreen/BaseCurrency";
 import { useDispatch, useSelector } from "react-redux";
 import { setBaseCurr, setColor, setTargettedCurr } from "../store/colorSlice";
 
+
+const windowheight = Dimensions.get("window").height;
 
 function AllCurrency({ navigation }) {
   const [AllCurrency, setAllCurrency] = useState([1, 2]);
@@ -48,18 +50,24 @@ function AllCurrency({ navigation }) {
   console.log("targettedCur", targettedCur)
 
   return (
-    <ScrollView style={{ marginBottom: 100, }}>
+    <View style={{ backgroundColor:'#fbfbfb' }}>
+    <ScrollView style={{ marginBottom: 0 }}>
 
       {/* //Dispatch action */}
 
-      <LinearGradient colors={primaryGrad}>
+      <LinearGradient colors={["rgba(170, 255, 251, 0.5)",
+          "rgba(78, 67, 255, 0.57)",
+          "rgba(137, 129, 254, 0.47)",
+          "#fbfbfb",
+          "#fbfbfb"
+          ]}>
         <View style={styles.wrapper}>
           <Text bold mb={3} fontSize="xl" textAlign="center"></Text>
           {/* <RouteHeader title="Convert Currency" /> */}
           <Text bold mb={3} fontSize="xl" textAlign="center">
             Convert Currency
           </Text>
-          <Box padding="3%">
+          <Box padding="5%">
             <BaseCurrency navigation={navigation} />
           </Box>
 
@@ -90,7 +98,7 @@ function AllCurrency({ navigation }) {
                   <SIngleCurrencyList key={index} navigation={navigation} />
                 ))}
 
-              <Box alignItems="center">
+              <Box alignItems="center" paddingBottom={100} marginTop={5}>
                 <Box width={180} justifyContent="center">
                   <Button
                     onPress={() => addMoreHandler()}
@@ -121,6 +129,7 @@ function AllCurrency({ navigation }) {
         </View>
       </LinearGradient>
     </ScrollView>
+    </View>
   );
 }
 
@@ -134,6 +143,7 @@ const styles = StyleSheet.create({
 
   wrapper: {
     // backgroundColor: "#C0D8FC",
+    minHeight:windowheight
   },
   primary_btn: {
     backgroundColor: COLORS.primary,
@@ -145,7 +155,7 @@ const styles = StyleSheet.create({
     // padding: 10,
   },
   converted: {
-    padding: "3%",
+    padding: "5%",
     borderColor: "#000000",
     backgroundColor: "#eeeefd",
     borderTopEndRadius: 30,

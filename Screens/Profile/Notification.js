@@ -25,6 +25,8 @@ const Notification = ({ navigation }) => {
   const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
   return (
     <>
+
+    <ScrollView>
       <LinearGradient
         // Button Linear Gradient
         colors={primaryGrad}
@@ -40,13 +42,10 @@ const Notification = ({ navigation }) => {
           >
             You don’t have any notification
           </Text>
-          <Text marginTop={2} marginX={1} style={{ alignItems: "center" }}>
-            Notification allows you to be notified when a currency’s{" "}
+          <Text marginTop={4} mb={10}  marginX={3} style={{ alignItems: "center", textAlign:'center' }}>
+            Notification allows you to be notified when a currency’s will increase or goes above or below a set value
           </Text>
-          <Text paddingBottom={5}>
-            {" "}
-            will increase or goes above or below a set value
-          </Text>
+          
         </Center>
 
       <ScrollView
@@ -73,8 +72,9 @@ const Notification = ({ navigation }) => {
               mt={5}
               justifyContent="space-evenly"
               backgroundColor="white"
+              alignItems='center'
               paddingY={2}
-              paddingX={1}
+              paddingX={3}
               borderRadius={10}
               style={{
                 shadowColor: '#e6e6e6',
@@ -84,12 +84,13 @@ const Notification = ({ navigation }) => {
                 elevation: 10
               }}
             >
-              <View
+              {/* <View
                 display={"flex"}
                 flexDirection={"row"}
                 alignItems="center"
-                justifyItems="center"
-              >
+                justifyItems="space-between"
+                backgroundColor='red'
+              > */}
                 <Image
                   borderRadius={100}
                   source={require("../../assets/icons/notification.png")}
@@ -100,8 +101,8 @@ const Notification = ({ navigation }) => {
                   }}
                   alt="logo"
                 />
-                <View marginLeft={8} width="70%">
-                  <Text bold fontSize="sm">
+                <View marginLeft={8} width="60%">
+                  <Text bold fontSize="xs">
                     Notify me when USD is increase
                   </Text>
                   <Text fontSize="sm">Date: 12-02-20223</Text>
@@ -110,14 +111,14 @@ const Notification = ({ navigation }) => {
                 <Image
                   source={require("../../assets/icons/remove.png")}
                   style={{
-                    width: 20,
-                    height: 25,
+                    width: 15,
+                    height: 20,
                     resizeMode: 'contain',
                   }}
                   
                   alt="logo"
                 />
-              </View>
+              {/* </View> */}
             </HStack>
           ))}
         </VStack>
@@ -125,7 +126,7 @@ const Notification = ({ navigation }) => {
         <TouchableOpacity
           onPress={() => navigation.navigate("AddNotification")}
         >
-          <Box alignItems="center">
+          <Box alignItems="center" mb={100}>
             <Box width="85%" justifyContent="center">
               <Button
                 onPress={() => navigation.navigate("AddNotification")}
@@ -173,6 +174,7 @@ const Notification = ({ navigation }) => {
       </ScrollView>
       
       </LinearGradient>
+      </ScrollView>
     </>
   );
 };
